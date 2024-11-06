@@ -3238,6 +3238,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1342016357496190065, guid: 56e88d6872b473a428f4c026923fda6d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342016357496190065, guid: 56e88d6872b473a428f4c026923fda6d, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1018548699
+      objectReference: {fileID: 0}
     - target: {fileID: 1342016357496190066, guid: 56e88d6872b473a428f4c026923fda6d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3252,7 +3260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1342016357496190066, guid: 56e88d6872b473a428f4c026923fda6d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.024155166
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1342016357496190066, guid: 56e88d6872b473a428f4c026923fda6d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3285,6 +3293,10 @@ PrefabInstance:
     - target: {fileID: 1342016357496190071, guid: 56e88d6872b473a428f4c026923fda6d, type: 3}
       propertyPath: m_Name
       value: Cursor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342016357496190071, guid: 56e88d6872b473a428f4c026923fda6d, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56e88d6872b473a428f4c026923fda6d, type: 3}
