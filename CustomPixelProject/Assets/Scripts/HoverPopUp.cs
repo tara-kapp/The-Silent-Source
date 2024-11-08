@@ -29,7 +29,7 @@ public class HoverPopUp : MonoBehaviour{
 
     void Update()
     {
-        transform.position = Input.mousePosition;
+        //transform.position = Input.mousePosition;
     }
 
     public void SetandShowToolTip(string message)
