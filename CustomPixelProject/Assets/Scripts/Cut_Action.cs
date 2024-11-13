@@ -6,6 +6,7 @@ public class Cut_Action : MonoBehaviour
 {
     public GameObject cutPrefab;
     public float spacing = 0.1f;
+    public Transform parentTransform;
 
     private List<Vector3> cutPath = new List<Vector3>();
     private Vector3 lastPosition;
@@ -27,13 +28,20 @@ public class Cut_Action : MonoBehaviour
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             currentPosition.z = 0;
 
-            if (Vector3.Distance(currentPosition, lastPosition) >= spacing)
-            {
-                cutPath.Add(currentPosition);
-                lastPosition = currentPosition;
+            //Raycast to detect if the mouse is over the pig sprite
+            RaycastHit2D hit = Physics2D.Raycast(currentPosition, Vector2.zero);
 
-                //Instantiate the cut prefab at current position
-                Instantiate(cutPrefab, currentPosition, Quaternion.identity);
+            if (hit.collider != null && hit.collider.gameObject == this.gameObject)
+            {                
+
+                if (Vector3.Distance(currentPosition, lastPosition) >= spacing)
+                {
+                    cutPath.Add(currentPosition);
+                    lastPosition = currentPosition;
+
+                    //Instantiate the cut prefab at current position
+                    Instantiate(cutPrefab, currentPosition, Quaternion.identity, parentTransform);
+                }
             }
         }
         
