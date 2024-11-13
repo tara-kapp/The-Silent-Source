@@ -10,6 +10,7 @@ public class CursorScript : MonoBehaviour
     public Sprite magnifierSprite;
 
     private bool isKnifeMode = true;
+    public AudioSource sliceSound;
 
 
     
@@ -17,7 +18,7 @@ public class CursorScript : MonoBehaviour
     void Start()
     {
         // hide default cursor
-        Cursor.visible = false;
+        //Cursor.visible = false;
         cursorSprite.sprite = knifeSprite;
     }
 
@@ -30,7 +31,9 @@ public class CursorScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            spriteSwap();
+            //spriteSwap();
+            sliceSound.Play();
+
         }
     }
 
