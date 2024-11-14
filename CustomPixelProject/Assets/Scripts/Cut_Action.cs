@@ -74,9 +74,11 @@ public class Cut_Action : MonoBehaviour
     public void TakeDamage(int damage)
     {       
         healthAmount -= damage;
-        healthBar.fillAmount = healthAmount /100f;     
+
+        //Removes green bar from health bar UI
+        healthBar.fillAmount = healthAmount /100f;      
         
-        
+        Debug.LogError(healthAmount.ToString());
 
     }
 }
