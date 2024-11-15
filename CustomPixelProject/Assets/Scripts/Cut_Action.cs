@@ -44,7 +44,7 @@ public class Cut_Action : MonoBehaviour
             //Raycast to detect if the mouse is over the pig sprite
             RaycastHit2D hit = Physics2D.Raycast(currentPosition, Vector2.zero);
 
-            //Check to see if cursor is inside pig sprite
+            //If cursor is inside pig sprite
             if (hit.collider != null && hit.collider.gameObject == this.gameObject)
             {
                 if (painOverlay != null)
