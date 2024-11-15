@@ -18,8 +18,7 @@ public class spriteSwitch : MonoBehaviour
     // Update is called once per frame
 
     void Start(){
-        gameobject.SetActive(false);
-        spriteNum = 0;
+        //gameobject.SetActive(false);
     }
 
     void Update(){
@@ -27,7 +26,6 @@ public class spriteSwitch : MonoBehaviour
     }
 
     public void OnClick(){
-        products[spriteNum].SetActive(false);
         UpdateSprite();
         gameobject.SetActive(true);
         
@@ -35,9 +33,6 @@ public class spriteSwitch : MonoBehaviour
 
     public void OnExit(){
         gameobject.SetActive(false);
-        spriteNum++;
-        products[spriteNum].SetActive(true);
-
     }
     void UpdateSprite() {
         sprite.texture = spriteArray[spriteNum];
