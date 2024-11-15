@@ -18,7 +18,7 @@ public class CursorScript : MonoBehaviour
     void Start()
     {
         // hide default cursor
-        //Cursor.visible = false;
+        Cursor.visible = false;
         cursorSprite.sprite = knifeSprite;
     }
 
