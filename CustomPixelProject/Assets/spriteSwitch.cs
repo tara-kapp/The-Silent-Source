@@ -10,10 +10,11 @@ public class spriteSwitch : MonoBehaviour
     public int spriteNum;
     public RawImage sprite;
     public TMP_Text messageText;
-    public string[] stringArray;
+    private string[] descriptions = {"Bullets", "Buttons", "Upholstery", "Chalk", "Crayons", "Pet Food", 
+    "Fabrics", "Fertilizers", "Football", "Gloves", "Glue", "Heart Valves", "Insulin", "Jello", "Leather",
+    "Matches", "Medicine", "Paintbrushes", "Purses", "Luggage", "Bone China"};
 
     public GameObject gameobject;
-    public GameObject[] products;
 
     // Update is called once per frame
 
@@ -36,6 +37,6 @@ public class spriteSwitch : MonoBehaviour
     }
     void UpdateSprite() {
         sprite.texture = spriteArray[spriteNum];
-        messageText.SetText(stringArray[spriteNum]);
+        messageText.SetText(descriptions[spriteNum]);
     }
 }
