@@ -12,14 +12,22 @@ public class CursorScript : MonoBehaviour
     private bool isKnifeMode = true;
     public AudioSource sliceSound;
 
+    public float rotationAngle = 25f;  // Amount of rotation when pressed
+    public float rotationSpeed = 5f;  // Speed of rotation
 
-    
+    private Quaternion originalRotation;  // Store the original rotation
+    private Quaternion targetRotation;    // Target rotation when mouse is pressed
 
     void Start()
     {
-        // hide default cursor
-        Cursor.visible = false;
+
+        
         cursorSprite.sprite = knifeSprite;
+        Cursor.visible = false;
+        
+        // Set initial rotations
+        originalRotation = transform.rotation;
+        targetRotation = Quaternion.Euler(0, 0, rotationAngle);  // Set the target rotation angle
     }
 
     void Update()
@@ -29,11 +37,20 @@ public class CursorScript : MonoBehaviour
         // Update the position of the cursor sprite
         cursorSprite.transform.position = cursorPos;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0)) // While the mouse is held down
         {
-            //spriteSwap();
-            sliceSound.Play();
-
+            // Start rotating
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            
+            if (!sliceSound.isPlaying) // Play sound only if it's not already playing
+            {
+                sliceSound.Play();
+            }
+        }
+        else
+        {
+            // Stop rotating and return to original rotation
+            transform.rotation = Quaternion.Lerp(transform.rotation, originalRotation, rotationSpeed * Time.deltaTime);
         }
     }
 
@@ -47,8 +64,6 @@ public class CursorScript : MonoBehaviour
         {
             cursorSprite.sprite = knifeSprite;
         }
-
-
         isKnifeMode = !isKnifeMode;
     }
 }

@@ -23,7 +23,7 @@ public class HoverPopUp : MonoBehaviour{
     void Start()
     {
         // Hide the pop-up box at the start
-        Cursor.visible = true;
+        //Cursor.visible = true;
         gameObject.SetActive(false);
     }
 
