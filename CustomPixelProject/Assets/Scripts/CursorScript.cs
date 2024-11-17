@@ -18,12 +18,23 @@ public class CursorScript : MonoBehaviour
     private Quaternion originalRotation;  // Store the original rotation
     private Quaternion targetRotation;    // Target rotation when mouse is pressed
 
+    private Vector2 lastPosition;
+    public TrailRenderer trailRenderer;
+
+    
+
+
+    
+
+    
+
     void Start()
     {
 
         
         cursorSprite.sprite = knifeSprite;
-        Cursor.visible = false;
+        trailRenderer.emitting = false;
+        
         
         // Set initial rotations
         originalRotation = transform.rotation;
@@ -39,6 +50,7 @@ public class CursorScript : MonoBehaviour
 
         if (Input.GetMouseButton(0)) // While the mouse is held down
         {
+            
             // Start rotating
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             
@@ -46,11 +58,14 @@ public class CursorScript : MonoBehaviour
             {
                 sliceSound.Play();
             }
+
+            trailRenderer.emitting = true;
         }
         else
         {
             // Stop rotating and return to original rotation
             transform.rotation = Quaternion.Lerp(transform.rotation, originalRotation, rotationSpeed * Time.deltaTime);
+            trailRenderer.emitting = false;
         }
     }
 
