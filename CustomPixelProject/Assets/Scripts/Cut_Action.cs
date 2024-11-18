@@ -78,7 +78,7 @@ public class Cut_Action : MonoBehaviour
         //Removes green bar from health bar UI
         healthBar.fillAmount = healthAmount /100f;      
         
-        Debug.LogError(healthAmount.ToString());
+        //Debug.LogError(healthAmount.ToString());
 
     }
 }
