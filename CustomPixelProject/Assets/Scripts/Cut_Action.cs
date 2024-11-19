@@ -18,6 +18,8 @@ public class Cut_Action : MonoBehaviour
     public Image healthBar;
     public float healthAmount = 100f;
 
+    
+
 
 
     void Start()
@@ -77,6 +79,13 @@ public class Cut_Action : MonoBehaviour
     public void TakeDamage(int damage)
     {       
         healthAmount -= damage;
+
+        if (healthAmount <= 0)
+        {
+            Debug.Log("Pig is dead");
+        }
+
+
 
         //Removes green bar from health bar UI
         healthBar.fillAmount = healthAmount /100f;      
