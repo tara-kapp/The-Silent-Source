@@ -9,12 +9,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Cutscene
   - Water
   - UI
   - Cursor
   - ObjectPrefabas
-  - 
+  - Background
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: button
     uniqueID: 2849047851
+    locked: 0
+  - name: Background
+    uniqueID: 3717757449
     locked: 0
