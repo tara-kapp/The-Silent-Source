@@ -60,8 +60,11 @@ public class Cut_Action : MonoBehaviour
                     cutPath.Add(currentPosition);
                     lastPosition = currentPosition;
 
+                    // Generate a random rotation
+                    Quaternion randomRotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
+
                     //Instantiate the cut prefab at current position
-                    Instantiate(cutPrefab, currentPosition, Quaternion.identity, parentTransform);
+                    Instantiate(cutPrefab, currentPosition, randomRotation, parentTransform);
 
                     //Take damage with each 
                     TakeDamage(5);
