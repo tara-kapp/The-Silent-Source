@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleSpriteSystem : MonoBehaviour
+public class ParticleSpriteManager : MonoBehaviour
 {
     public ParticleSystem ParticleSystem;
     public List<Sprite> particleSprites;
@@ -12,15 +12,8 @@ public class ParticleSpriteSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Check if system is assigned
-        if(ParticleSystem == null)
-        {
-            ParticleSystem = GetComponent<ParticleSystem>();
-            transform.position = StartPoint.position;
-        }
+        ParticleSystem = GetComponent<ParticleSystem>();
 
-
-        ParticleSystem.transform.position = StartPoint.position;
         var textureSheetAnimation = ParticleSystem.textureSheetAnimation;
         textureSheetAnimation.mode = ParticleSystemAnimationMode.Sprites;
         textureSheetAnimation.RemoveSprite(0);
@@ -31,7 +24,7 @@ public class ParticleSpriteSystem : MonoBehaviour
             textureSheetAnimation.AddSprite(sprite);
         }
 
-        
+        textureSheetAnimation.frameOverTime = new ParticleSystem.MinMaxCurve(1.0f, AnimationCurve.Linear(0, 0, 1, 1));
 
     }
 
@@ -45,6 +38,8 @@ public class ParticleSpriteSystem : MonoBehaviour
         {
             Vector3 direction = (EndPoint.position - particles[i].position).normalized;
             float speed = 5f;
+
+            Debug.DrawLine(particles[i].position, EndPoint.position, Color.red, 0.1f);
             particles[i].velocity = direction * speed;
         }
 

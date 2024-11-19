@@ -6125,7 +6125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1342016357496190064, guid: 56e88d6872b473a428f4c026923fda6d, type: 3}
       propertyPath: normalSpeed
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1342016357496190064, guid: 56e88d6872b473a428f4c026923fda6d, type: 3}
       propertyPath: trailRenderer

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleSpriteManager : MonoBehaviour
+public class ParticleSystemManager : MonoBehaviour
 {
-    public ParticleSystem particleSystem;
+    public ParticleSystem ParticleSystem;
     public List<Sprite> particleSprites; 
 
     // Start is called before the first frame update
@@ -12,12 +12,12 @@ public class ParticleSpriteManager : MonoBehaviour
     {
 
         //Check if system is assigned
-        if(particleSystem == null)
+        if(ParticleSystem == null)
         {
-            particleSystem = GetComponent<ParticleSystem>();
+            ParticleSystem = GetComponent<ParticleSystem>();
         }
 
-        var textureSheetAnimation = particleSystem.textureSheetAnimation;
+        var textureSheetAnimation = ParticleSystem.textureSheetAnimation;
         textureSheetAnimation.mode = ParticleSystemAnimationMode.Sprites;
         textureSheetAnimation.RemoveSprite(0);
 

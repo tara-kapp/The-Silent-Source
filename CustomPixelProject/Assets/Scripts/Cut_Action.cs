@@ -16,7 +16,7 @@ public class Cut_Action : MonoBehaviour
     private Vector3 lastPosition;
 
     public Image healthBar;
-    public float healthAmount = 100f;
+    public double healthAmount = 100f;
 
     
 
@@ -69,14 +69,14 @@ public class Cut_Action : MonoBehaviour
                     Instantiate(cutPrefab, currentPosition, randomRotation, parentTransform);
 
                     //Take damage with each 
-                    TakeDamage(5);
+                    TakeDamage(0.5);
                 }
             }
         }
         
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(double damage)
     {       
         healthAmount -= damage;
 
@@ -88,7 +88,7 @@ public class Cut_Action : MonoBehaviour
 
 
         //Removes green bar from health bar UI
-        healthBar.fillAmount = healthAmount /100f;      
+        healthBar.fillAmount = (float)(healthAmount /100f);      
         
         //Debug.LogError(healthAmount.ToString());
 
