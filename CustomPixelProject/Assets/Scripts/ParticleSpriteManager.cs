@@ -16,16 +16,25 @@ public class ParticleSpriteManager : MonoBehaviour
 
         var textureSheetAnimation = ParticleSystem.textureSheetAnimation;
         textureSheetAnimation.mode = ParticleSystemAnimationMode.Sprites;
-        textureSheetAnimation.RemoveSprite(0);
+        //textureSheetAnimation.RemoveSprite(0);
 
+        //SetParticleSprite();
         //Add sprites from list to system
-        foreach(var sprite in particleSprites)
-        {
-            textureSheetAnimation.AddSprite(sprite);
-        }
+        //foreach(var sprite in particleSprites)
+        //{
+        //    textureSheetAnimation.AddSprite(sprite);
+        //}
 
         textureSheetAnimation.frameOverTime = new ParticleSystem.MinMaxCurve(1.0f, AnimationCurve.Linear(0, 0, 1, 1));
 
+    }
+
+    public void SetParticleSprite(Sprite sprite)
+    {
+        var texturesheet = ParticleSystem.textureSheetAnimation;
+        texturesheet.RemoveSprite(0);
+        texturesheet.AddSprite(sprite);
+        Debug.Log("here");
     }
 
     void Update()

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PigBehavior : MonoBehaviour
@@ -8,11 +9,10 @@ public class PigBehavior : MonoBehaviour
     public ParticleSystem explosionEffect;
     private SpriteRenderer pigSpriteRenderer;
     private Sprite assignedItem;
-    private int damageCount = 0;
-    private int maxDamage = 5;
-    private bool isExploded = false;
+    public Sprite itemSpawn;
+    public ParticleSpriteManager particleSpriteManager;
 
-    
+
     void Start()
     {
         pigSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -20,36 +20,35 @@ public class PigBehavior : MonoBehaviour
 
     public void AssignItem(Sprite item)
     {
-        assignedItem = item;
+        assignedItem = item;        
     }
+    
 
-    public void DamagePig()
-    {
-        if (isExploded) return;
-
-        damageCount++;
-        if(damageCount >= maxDamage )
+    public void TriggerExplosion()
+    {        
+        if(particleSpriteManager != null)
         {
-            TriggerExplosion();
+            particleSpriteManager.SetParticleSprite(assignedItem);
         }
-    }
 
-    private void TriggerExplosion()
-    {
-        isExploded = true;
+
         Instantiate(explosionEffect, transform.position, Quaternion.identity).Play();
-
-        Debug.Log($"Reveleaing item: {assignedItem.name}");
-
-        FindObjectOfType<PigManager>().RemoveCurrentPig();
-    }
-
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
         
+        //Debug.Log($"Reveleaing item: {assignedItem.name}");
+
+        if (explosionEffect.isStopped)
+        {
+            StartCoroutine(DelayedFunction(10f));
+
+            //Sets timer to delay pig movement
+            IEnumerator DelayedFunction(float delay)
+            {
+                yield return new WaitForSeconds(delay);
+                FindObjectOfType<PigManager>().RemoveCurrentPig();
+            }
+
+            
+
+        }        
     }
 }
