@@ -18,14 +18,17 @@ public class Cut_Action : MonoBehaviour
     public Image healthBar;
     public double healthAmount = 100f;
 
-    
+    private PigBehavior pigBehavior;
 
 
 
     void Start()
     {        
         //Turn sad face off
-        painOverlay.SetActive(false);        
+        painOverlay.SetActive(false);  
+        
+        pigBehavior = GetComponent<PigBehavior>();
+        
     }
 
     // Update is called once per frame
@@ -48,14 +51,7 @@ public class Cut_Action : MonoBehaviour
 
             //If cursor is inside pig sprite
             if (hit.collider != null && hit.collider.gameObject == this.gameObject)
-            {
-                if (painOverlay != null)
-                {
-                    // Toggle the overlay on each click
-                    painOverlay.SetActive(!painOverlay.activeSelf);
-                    pigPain.Play();
-                }
-
+            {   
                 //Checks the position of sprites and spacing of sprites (defined in inspector)
                 if (Vector3.Distance(currentPosition, lastPosition) >= spacing)
                 {
@@ -69,7 +65,7 @@ public class Cut_Action : MonoBehaviour
                     Instantiate(cutPrefab, currentPosition, randomRotation, parentTransform);
 
                     //Take damage with each 
-                    TakeDamage(0.5);
+                    TakeDamage(5);
                 }
             }
         }
@@ -77,20 +73,29 @@ public class Cut_Action : MonoBehaviour
     }
 
     public void TakeDamage(double damage)
-    {       
+    {
+        // Show pig sad face
+        painOverlay.SetActive(true);
+
+        // Play audio
+        pigPain.Play();
+
+        //Subtracts from health amount
         healthAmount -= damage;
-
-        if (healthAmount <= 0)
-        {
-            Debug.Log("Pig is dead");
-        }
-
-
-
-        //Removes green bar from health bar UI
-        healthBar.fillAmount = (float)(healthAmount /100f);      
         
-        //Debug.LogError(healthAmount.ToString());
+        //Removes green bar from health bar UI
+        healthBar.fillAmount = (float)(healthAmount /100f);
+
+        //When health is at zero
+        if (healthAmount == 0)
+        {
+            Debug.Log("Pig is dead");                      
+            
+            //Trigger particle explosion
+            pigBehavior.TriggerExplosion();
+            
+        }              
+        
 
     }
 }
