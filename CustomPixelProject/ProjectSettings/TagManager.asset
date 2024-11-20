@@ -9,7 +9,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Cutscene
+  - Foreground
   - Water
   - UI
   - Cursor
@@ -50,6 +50,9 @@ TagManager:
     locked: 0
   - name: button
     uniqueID: 2849047851
+    locked: 0
+  - name: Foreground
+    uniqueID: 2016715103
     locked: 0
   - name: Background
     uniqueID: 3717757449
