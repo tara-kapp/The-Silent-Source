@@ -4,81 +4,73 @@ using UnityEngine;
 
 public class CursorScript : MonoBehaviour
 {
-    // Assign your sprite renderer with the sprite in the inspector
-    public SpriteRenderer cursorSprite; 
-    public Sprite knifeSprite;
-    public Sprite magnifierSprite;
+    public SpriteRenderer knifeSpriteRenderer; // SpriteRenderer for the knife
+    public TrailRenderer trailRenderer;       // TrailRenderer for the trail
+    public Gradient normalColor;             // Gradient for normal trail color
+    public Gradient targetSpriteColor;       // Gradient for trail color when over target sprite
 
-    private bool isKnifeMode = true;
+    public Transform knifeTransform;         // Transform for the knife
+    public float normalSpeed = 10f;          // Normal movement speed
+    public float swipeSpeed = 25f;           // Movement speed when mouse is pressed
+    public float rotationAngle = 25f;        // Amount of rotation on mouse press
+    public float rotationSpeed = 5f;         // Speed of rotation
+
+    private Quaternion originalRotation;     // Original rotation of the knife
+    private Quaternion targetRotation;       // Target rotation on mouse press
     public AudioSource sliceSound;
-
-    public float rotationAngle = 25f;  // Amount of rotation when pressed
-    public float rotationSpeed = 5f;  // Speed of rotation
-
-    private Quaternion originalRotation;  // Store the original rotation
-    private Quaternion targetRotation;    // Target rotation when mouse is pressed
-
-    private Vector2 lastPosition;
-    public TrailRenderer trailRenderer;
-
-    
-
-
-    
-
-    
 
     void Start()
     {
+        // Initialize rotations
+        originalRotation = knifeTransform.rotation;
+        targetRotation = Quaternion.Euler(0, 0, rotationAngle);
 
-        
-        cursorSprite.sprite = knifeSprite;
+        // Disable trail initially
         trailRenderer.emitting = false;
-        
-        
-        // Set initial rotations
-        originalRotation = transform.rotation;
-        targetRotation = Quaternion.Euler(0, 0, rotationAngle);  // Set the target rotation angle
+        trailRenderer.colorGradient = normalColor; // Set the default trail color
     }
 
     void Update()
     {
-        // Get the mouse position and convert it to world position
-        Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // Update the position of the cursor sprite
-        cursorSprite.transform.position = cursorPos;
+        // Get the mouse position
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetMouseButton(0)) // While the mouse is held down
+        // Determine movement speed based on mouse button state
+        float currentSpeed = Input.GetMouseButton(0) ? swipeSpeed : normalSpeed;
+
+        // Move the knife smoothly toward the cursor
+        knifeTransform.position = Vector2.Lerp(knifeTransform.position, mousePosition, Time.deltaTime * currentSpeed);
+
+        if (Input.GetMouseButton(0)) // When mouse is pressed
         {
-            
-            // Start rotating
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-            
-            if (!sliceSound.isPlaying) // Play sound only if it's not already playing
-            {
-                sliceSound.Play();
-            }
+            sliceSound.Play();
+            // Rotate the knife toward the target rotation
+            knifeTransform.rotation = Quaternion.Lerp(knifeTransform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
 
+            // Enable the trail
             trailRenderer.emitting = true;
+
+            // Perform a Raycast to detect target sprite
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+            if (hit.collider != null && hit.collider.CompareTag("TargetSprite"))
+            {
+                // Change trail color when over the target sprite
+                trailRenderer.colorGradient = targetSpriteColor;
+            }
+            else
+            {
+                // Revert to normal trail color
+                trailRenderer.colorGradient = normalColor;
+            }
         }
-        else
+        else // When mouse is not pressed
         {
-            // Stop rotating and return to original rotation
-            transform.rotation = Quaternion.Lerp(transform.rotation, originalRotation, rotationSpeed * Time.deltaTime);
+            // Reset the knife to its original rotation
+            knifeTransform.rotation = Quaternion.Lerp(knifeTransform.rotation, originalRotation, Time.deltaTime * rotationSpeed);
+
+            // Disable the trail
             trailRenderer.emitting = false;
         }
     }
-
-    void spriteSwap()
-    {
-        if (isKnifeMode)
-        {
-            cursorSprite.sprite = magnifierSprite; 
-        }
-        else
-        {
-            cursorSprite.sprite = knifeSprite;
-        }
-        isKnifeMode = !isKnifeMode;
-    }
 }
+

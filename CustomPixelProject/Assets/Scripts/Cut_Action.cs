@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class Cut_Action : MonoBehaviour
 {
     public GameObject cutPrefab;
+    public List<Sprite> cutSprites; // List of sprites to choose from
     public float spacing = 0.1f;
     public GameObject painOverlay;
     public Transform parentTransform;
@@ -16,14 +16,18 @@ public class Cut_Action : MonoBehaviour
     private Vector3 lastPosition;
 
     public Image healthBar;
-    public float healthAmount = 100f;
+    public double healthAmount = 100f;
 
+    public float dwellIncrement = 0.1f;
+    public float maxScaleFactor = 1.5f;
 
+    private Dictionary<Vector3, float> dwellTimes = new Dictionary<Vector3, float>(); // To track dwell times
 
     void Start()
-    {        
-        //Turn sad face off
-        painOverlay.SetActive(false);        
+    {
+        // Turn sad face off
+        painOverlay.SetActive(false);
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -33,7 +37,7 @@ public class Cut_Action : MonoBehaviour
         {
             cutPath.Clear();
             lastPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            lastPosition.z = 0;            
+            lastPosition.z = 0;
         }
 
         if (Input.GetMouseButton(0))
@@ -41,10 +45,10 @@ public class Cut_Action : MonoBehaviour
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             currentPosition.z = 0;
 
-            //Raycast to detect if the mouse is over the pig sprite
+            // Raycast to detect if the mouse is over the pig sprite
             RaycastHit2D hit = Physics2D.Raycast(currentPosition, Vector2.zero);
 
-            //If cursor is inside pig sprite
+            // If cursor is inside pig sprite
             if (hit.collider != null && hit.collider.gameObject == this.gameObject)
             {
                 if (painOverlay != null)
@@ -54,31 +58,77 @@ public class Cut_Action : MonoBehaviour
                     pigPain.Play();
                 }
 
-                //Checks the position of sprites and spacing of sprites (defined in inspector)
+                // Check the position of sprites and spacing of sprites (defined in inspector)
                 if (Vector3.Distance(currentPosition, lastPosition) >= spacing)
                 {
                     cutPath.Add(currentPosition);
                     lastPosition = currentPosition;
 
-                    //Instantiate the cut prefab at current position
-                    Instantiate(cutPrefab, currentPosition, Quaternion.identity, parentTransform);
+                    // Generate a random rotation
+                    Quaternion randomRotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
 
-                    //Take damage with each 
-                    TakeDamage(5);
+                    // Instantiate the cut prefab at the current position
+                    GameObject newCut = Instantiate(cutPrefab, currentPosition, randomRotation, parentTransform);
+
+                    // Assign a random sprite
+                    SpriteRenderer spriteRenderer = newCut.GetComponent<SpriteRenderer>();
+                    if (spriteRenderer != null && cutSprites.Count > 0)
+                    {
+                        spriteRenderer.sprite = cutSprites[Random.Range(0, cutSprites.Count)];
+                    }
+
+                    // Track dwell time
+                    if (!dwellTimes.ContainsKey(currentPosition))
+                        dwellTimes[currentPosition] = 0;
+
+                    // Start coroutine to increase size based on dwell time
+                    StartCoroutine(ScaleOverTime(newCut.transform, currentPosition));
+
+                    // Take damage
+                    TakeDamage(0.5);
                 }
             }
         }
-        
     }
 
-    public void TakeDamage(int damage)
-    {       
+    public void TakeDamage(double damage)
+    {
         healthAmount -= damage;
 
-        //Removes green bar from health bar UI
-        healthBar.fillAmount = healthAmount /100f;      
-        
-        Debug.LogError(healthAmount.ToString());
+        if (healthAmount <= 0)
+        {
+            Debug.Log("Pig is dead");
+        }
 
+        // Remove green bar from health bar UI
+        healthBar.fillAmount = (float)(healthAmount / 100f);
     }
+
+    private IEnumerator ScaleOverTime(Transform cutTransform, Vector3 position)
+{
+    SpriteRenderer spriteRenderer = cutTransform.GetComponent<SpriteRenderer>();
+    if (spriteRenderer == null) yield break; // Ensure the prefab has a SpriteRenderer
+
+    // Initialize base size
+    Vector3 baseScale = cutTransform.localScale;
+
+
+
+    while (dwellTimes.ContainsKey(position))
+    {
+        dwellTimes[position] += Time.deltaTime;
+
+        // Incrementally grow the sprite
+        float scaleFactor = Mathf.Clamp(1 + dwellTimes[position] * dwellIncrement, 1, maxScaleFactor);
+
+        // Apply constrained scaling
+        cutTransform.localScale = baseScale * scaleFactor;
+
+        // Stop scaling when max size is reached
+        if (scaleFactor >= maxScaleFactor) break;
+
+        yield return null;
+    }
+}
+
 }

@@ -3,17 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - TargetSprite
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Foreground
   - Water
   - UI
   - Cursor
   - ObjectPrefabas
-  - 
+  - Background
   - 
   - 
   - 
@@ -49,4 +50,10 @@ TagManager:
     locked: 0
   - name: button
     uniqueID: 2849047851
+    locked: 0
+  - name: Foreground
+    uniqueID: 2016715103
+    locked: 0
+  - name: Background
+    uniqueID: 3717757449
     locked: 0
