@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4627277464614672786
+--- !u!1 &1575069630542377663
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4627277464614672785}
-  - component: {fileID: 4627277464614672797}
-  - component: {fileID: 4627277464614672798}
-  - component: {fileID: 4627277464614672799}
-  - component: {fileID: 4627277464614672784}
+  - component: {fileID: 1575069629005516834}
+  - component: {fileID: 1575069630542377659}
+  - component: {fileID: 1575069630542377658}
+  - component: {fileID: 1575069630542377657}
+  - component: {fileID: 1575069630542377656}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -20,13 +20,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &4627277464614672785
+--- !u!224 &1575069629005516834
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4627277464614672786}
+  m_GameObject: {fileID: 1575069630542377663}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,21 +40,21 @@ RectTransform:
   m_AnchoredPosition: {x: 164, y: 12}
   m_SizeDelta: {x: 150, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4627277464614672797
+--- !u!222 &1575069630542377659
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4627277464614672786}
+  m_GameObject: {fileID: 1575069630542377663}
   m_CullTransparentMesh: 1
---- !u!114 &4627277464614672798
+--- !u!114 &1575069630542377658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4627277464614672786}
+  m_GameObject: {fileID: 1575069630542377663}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -78,13 +78,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4627277464614672799
+--- !u!114 &1575069630542377657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4627277464614672786}
+  m_GameObject: {fileID: 1575069630542377663}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -118,11 +118,11 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 4627277464614672798}
+  m_TargetGraphic: {fileID: 1575069630542377658}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4627277464614672784}
+      - m_Target: {fileID: 1575069630542377656}
         m_TargetAssemblyTypeName: spriteSwitch, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
@@ -134,13 +134,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4627277464614672784
+--- !u!114 &1575069630542377656
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4627277464614672786}
+  m_GameObject: {fileID: 1575069630542377663}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 705b44ce42818b140b66fd476c0bc307, type: 3}
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteArray:
   - {fileID: 2800000, guid: 878cf3b8090e2ab4f91886e4f5e80324, type: 3}
-  - {fileID: 2800000, guid: 8bd8c0f99e3069044ae265194bbca1b9, type: 3}
+  - {fileID: 2800000, guid: e4d15bae3f319fe468f08da1b1a1fd9b, type: 3}
   - {fileID: 2800000, guid: 1198592a14a9793449539c36e572345d, type: 3}
   - {fileID: 2800000, guid: d5629d8f0cd488c4eb7f135c072963b9, type: 3}
   - {fileID: 2800000, guid: ea9337ea12283634db2a63abc2ca5eb6, type: 3}
@@ -156,7 +156,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 30a5d520a90109e44bfff88a45304d52, type: 3}
   - {fileID: 2800000, guid: 703b4c7a51068bd4299cdc58f7411b7d, type: 3}
   - {fileID: 2800000, guid: e9c1e7e8460a32b41b8df175233d43c0, type: 3}
-  - {fileID: 2800000, guid: c3455c6ab6c5da640a4d0e8b9842cb83, type: 3}
+  - {fileID: 2800000, guid: 720b22e72b0e69f488fc3fd7de044d4e, type: 3}
   - {fileID: 2800000, guid: 0635bdfcc32393a428c8d49cba76b36c, type: 3}
   - {fileID: 2800000, guid: d39357ca0964b334ba54cf706b433c60, type: 3}
   - {fileID: 2800000, guid: f5dd275e27d5083489819b5b3e4f5162, type: 3}
@@ -165,10 +165,12 @@ MonoBehaviour:
   - {fileID: 2800000, guid: eb282ee1c9b781746bfa32673ceed05d, type: 3}
   - {fileID: 2800000, guid: 0ca1a6621ab64b1429323fb7bc8d8949, type: 3}
   - {fileID: 2800000, guid: 7fe2a6df6e6645846a1bf518751ca9b1, type: 3}
-  - {fileID: 2800000, guid: 171491c320e93ef45828906dbe85c46d, type: 3}
+  - {fileID: 2800000, guid: 6a8a1881f1f2b594bb9edc6b873b9ade, type: 3}
   - {fileID: 2800000, guid: 3b09df88700404e40b2efaa56b12fe77, type: 3}
   - {fileID: 2800000, guid: c8d4f34a17e327741b6c09e6b1d036db, type: 3}
   spriteNum: 11
   sprite: {fileID: 0}
+  headingText: {fileID: 0}
   messageText: {fileID: 0}
+  fontsize: 2600000026000000120000001400000028000000180000001c0000001a00000018000000220000001400000014000000280000001e0000001e000000190000001900000018000000280000001600000018000000
   gameobject: {fileID: 0}
