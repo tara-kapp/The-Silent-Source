@@ -1,10 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CursorScript : MonoBehaviour
 {
-    public SpriteRenderer knifeSpriteRenderer; // SpriteRenderer for the knife
+
+
+
+    public GameObject Cursor1; // Assign via Inspector
+    public Button modeSwitchButton;   // Reference to the UI Button
+
+    private SpriteRenderer spriteRenderer;
+    public Sprite knifeSprite; // SpriteRenderer for the knife
+    public Sprite handSprite;  // SpriteRenderer for the hand
+    public Sprite handPettingSprite;  // SpriteRenderer for the hand
     public TrailRenderer trailRenderer;       // TrailRenderer for the trail
     public Gradient normalColor;             // Gradient for normal trail color
     public Gradient targetSpriteColor;       // Gradient for trail color when over target sprite
@@ -19,15 +29,28 @@ public class CursorScript : MonoBehaviour
     private Quaternion targetRotation;       // Target rotation on mouse press
     public AudioSource sliceSound;
 
+    public bool petMode;
+    public bool isPetting = false;
+
     void Start()
     {
+
+        petMode = false;
+
+        modeSwitchButton.onClick.AddListener(handModeSwitch);
         // Initialize rotations
         originalRotation = knifeTransform.rotation;
         targetRotation = Quaternion.Euler(0, 0, rotationAngle);
 
-        // Disable trail initially
+        // Disable trail initially and set trail color
         trailRenderer.emitting = false;
-        trailRenderer.colorGradient = normalColor; // Set the default trail color
+        trailRenderer.colorGradient = normalColor; 
+
+
+        // Initialize sprite render and configure sprites
+        spriteRenderer = Cursor1.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = knifeSprite;
+        
     }
 
     void Update()
@@ -41,7 +64,7 @@ public class CursorScript : MonoBehaviour
         // Move the knife smoothly toward the cursor
         knifeTransform.position = Vector2.Lerp(knifeTransform.position, mousePosition, Time.deltaTime * currentSpeed);
 
-        if (Input.GetMouseButton(0)) // When mouse is pressed
+        if ((Input.GetMouseButton(0)) && (!petMode)) 
         {
             sliceSound.Play();
             // Rotate the knife toward the target rotation
@@ -63,8 +86,20 @@ public class CursorScript : MonoBehaviour
                 trailRenderer.colorGradient = normalColor;
             }
         }
-        else // When mouse is not pressed
+        else if ((Input.GetMouseButton(0)) && (petMode))
         {
+
+            spriteRenderer.sprite = handPettingSprite;
+        }
+        else if ((!Input.GetMouseButton(0)) && (petMode))
+        {
+
+            spriteRenderer.sprite = handSprite;
+            trailRenderer.emitting = false;
+        }
+        else if ((!Input.GetMouseButton(0)) && (!petMode))
+        {
+
             // Reset the knife to its original rotation
             knifeTransform.rotation = Quaternion.Lerp(knifeTransform.rotation, originalRotation, Time.deltaTime * rotationSpeed);
 
@@ -72,5 +107,31 @@ public class CursorScript : MonoBehaviour
             trailRenderer.emitting = false;
         }
     }
+
+
+    public void handModeSwitch()
+    {
+         // Toggle the state of petMode
+        petMode = !petMode;
+
+        // Change the cursor sprite based on the state
+        if (petMode)
+        {
+            spriteRenderer.sprite = handSprite;
+            Debug.Log("Pet mode activated");
+        }
+        else
+        {
+            spriteRenderer.sprite = knifeSprite;
+            Debug.Log("Pet mode deactivated");
+        }
+    }
+
+
+    public bool getMode()
+    {
+        return petMode;
+    }
+
 }
 

@@ -30,6 +30,8 @@ public class PigManager : MonoBehaviour
         //Randomize the list of items
         manMadeItems = manMadeItems.OrderBy(x => Random.value).ToList();
 
+
+
         //Initialize pigs
         foreach (Sprite item in manMadeItems)
         {
@@ -105,9 +107,12 @@ public class PigManager : MonoBehaviour
         onComplete?.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
+    public List<Sprite> getManMadeItems()
     {
-        
+
+        return manMadeItems;
+
     }
+
+
 }

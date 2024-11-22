@@ -4,14 +4,26 @@ using UnityEngine;
 
 public class ParticleSpriteManager : MonoBehaviour
 {
+    public PigManager pigManager;
+    public List<Sprite> manMadeItems;
+
     public ParticleSystem ParticleSystem;
     public List<Sprite> particleSprites;
+
+    
     public Transform StartPoint; 
     public Transform EndPoint;
 
     // Start is called before the first frame update
     void Start()
     {
+        manMadeItems = pigManager.getManMadeItems();
+        for (int i = 0; i < manMadeItems.Count; i++)
+        {
+            Debug.Log("Ported List" + manMadeItems[i]);
+
+        }
+
         ParticleSystem = GetComponent<ParticleSystem>();
 
         var textureSheetAnimation = ParticleSystem.textureSheetAnimation;
@@ -39,6 +51,8 @@ public class ParticleSpriteManager : MonoBehaviour
 
     void Update()
     {
+
+        
         //Move particles toward endpoint
         ParticleSystem.Particle[] particles = new ParticleSystem.Particle[ParticleSystem.main.maxParticles];
         int numParticlesAlive = ParticleSystem.GetParticles(particles);
