@@ -8,7 +8,7 @@ public class ParticleSpriteManager : MonoBehaviour
     public List<Sprite> manMadeItems;
 
     public ParticleSystem ParticleSystem;
-    public List<Sprite> particleSprites;
+    //public List<Sprite> particleSprites;
 
     
     public Transform StartPoint; 
@@ -20,22 +20,21 @@ public class ParticleSpriteManager : MonoBehaviour
         manMadeItems = pigManager.getManMadeItems();
         for (int i = 0; i < manMadeItems.Count; i++)
         {
-            Debug.Log("Ported List" + manMadeItems[i]);
-
+            Debug.Log("List:" + manMadeItems[i]);            
         }
 
         ParticleSystem = GetComponent<ParticleSystem>();
 
         var textureSheetAnimation = ParticleSystem.textureSheetAnimation;
         textureSheetAnimation.mode = ParticleSystemAnimationMode.Sprites;
-        //textureSheetAnimation.RemoveSprite(0);
+        textureSheetAnimation.RemoveSprite(0);
 
         //SetParticleSprite();
         //Add sprites from list to system
-        //foreach(var sprite in particleSprites)
-        //{
-        //    textureSheetAnimation.AddSprite(sprite);
-        //}
+        foreach(var sprite in manMadeItems)
+        {
+            textureSheetAnimation.AddSprite(sprite);
+        }
 
         textureSheetAnimation.frameOverTime = new ParticleSystem.MinMaxCurve(1.0f, AnimationCurve.Linear(0, 0, 1, 1));
 

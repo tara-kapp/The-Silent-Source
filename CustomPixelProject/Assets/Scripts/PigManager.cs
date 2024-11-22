@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class PigManager : MonoBehaviour
 {
-
     [Header("Pig Settings")]
     public GameObject pigPrefab;
     public Transform spawnPoint;
@@ -30,14 +29,10 @@ public class PigManager : MonoBehaviour
         //Randomize the list of items
         manMadeItems = manMadeItems.OrderBy(x => Random.value).ToList();
 
-
-
         //Initialize pigs
         foreach (Sprite item in manMadeItems)
         {
-            Debug.Log("Shuffled Item: " + item.name);
-            int index = manMadeItems.IndexOf(item);
-            
+            int index = manMadeItems.IndexOf(item);            
 
             //Instantiate pig with at spawnpoint. pig clones go under pig parent
             GameObject pig = Instantiate(pigPrefab, spawnPoint.position, Quaternion.identity, parentTransform);
