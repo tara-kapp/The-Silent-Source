@@ -34,6 +34,7 @@ public class ParticleSpriteManager : MonoBehaviour
         foreach(var sprite in manMadeItems)
         {
             textureSheetAnimation.AddSprite(sprite);
+            
         }
 
         textureSheetAnimation.frameOverTime = new ParticleSystem.MinMaxCurve(1.0f, AnimationCurve.Linear(0, 0, 1, 1));
