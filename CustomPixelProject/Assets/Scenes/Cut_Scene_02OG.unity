@@ -5322,9 +5322,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee5c55a6b3afb4478f06704393852fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pigManager: {fileID: 1292450186}
+  manMadeItems: []
   ParticleSystem: {fileID: 137738324}
-  particleSprites:
-  - {fileID: 21300000, guid: ea9337ea12283634db2a63abc2ca5eb6, type: 3}
   StartPoint: {fileID: 2068526159}
   EndPoint: {fileID: 978225712}
 --- !u!1 &175963220
@@ -5483,7 +5483,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 132b2cef51e2e4d9fb3afae04b6ee036, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6457,11 +6457,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8756187622195961018, guid: d7f48921774082348913c9c270d54726, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8756187622195961018, guid: d7f48921774082348913c9c270d54726, type: 3}
       propertyPath: m_SortingLayerID
-      value: 2016715103
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8756187622195961019, guid: d7f48921774082348913c9c270d54726, type: 3}
       propertyPath: m_RootOrder
