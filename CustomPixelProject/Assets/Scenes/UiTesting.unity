@@ -1158,32 +1158,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 265768400}
     m_Modifications:
-    - target: {fileID: 4856318485659676434, guid: 40f7dad96a87c4849bbf6359581e57e7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 213.1413
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856318485659676434, guid: 40f7dad96a87c4849bbf6359581e57e7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 41.7856
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856318485659676434, guid: 40f7dad96a87c4849bbf6359581e57e7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.5706
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856318485659676434, guid: 40f7dad96a87c4849bbf6359581e57e7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 46.2072
-      objectReference: {fileID: 0}
-    - target: {fileID: 6773689461845692032, guid: 40f7dad96a87c4849bbf6359581e57e7, type: 3}
-      propertyPath: m_text
-      value: 'Hello, my name is Wilbur
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6773689461845692032, guid: 40f7dad96a87c4849bbf6359581e57e7, type: 3}
-      propertyPath: m_margin.z
-      value: 3.7746887
-      objectReference: {fileID: 0}
     - target: {fileID: 6820323353470989057, guid: 40f7dad96a87c4849bbf6359581e57e7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1250,11 +1224,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6820323353470989057, guid: 40f7dad96a87c4849bbf6359581e57e7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -761.4
+      value: -615
       objectReference: {fileID: 0}
     - target: {fileID: 6820323353470989057, guid: 40f7dad96a87c4849bbf6359581e57e7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 374.5
+      value: 251
       objectReference: {fileID: 0}
     - target: {fileID: 6820323353470989057, guid: 40f7dad96a87c4849bbf6359581e57e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
