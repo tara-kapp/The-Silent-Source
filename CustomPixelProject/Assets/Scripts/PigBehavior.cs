@@ -6,6 +6,8 @@ using UnityEngine;
 public class PigBehavior : MonoBehaviour
 {
 
+
+
     public ParticleSystem explosionEffect;
     private SpriteRenderer pigSpriteRenderer;
     private Sprite assignedItem;
@@ -15,7 +17,10 @@ public class PigBehavior : MonoBehaviour
 
     void Start()
     {
+
         pigSpriteRenderer = GetComponent<SpriteRenderer>();
+        
+       
     }
 
     public void AssignItem(Sprite item)

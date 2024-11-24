@@ -21,13 +21,19 @@ public class Cut_Action : MonoBehaviour
     public float dwellIncrement = 0.1f;
     public float maxScaleFactor = 1.5f;
 
+    public PigBehavior pigBehavior;
+
     private Dictionary<Vector3, float> dwellTimes = new Dictionary<Vector3, float>(); // To track dwell times
 
     void Start()
     {
         // Turn sad face off
         painOverlay.SetActive(false);
+
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // Reference PigBehavior script
+        pigBehavior = GetComponent<PigBehavior>();
     }
 
     // Update is called once per frame
@@ -84,8 +90,8 @@ public class Cut_Action : MonoBehaviour
                     // Start coroutine to increase size based on dwell time
                     StartCoroutine(ScaleOverTime(newCut.transform, currentPosition));
 
-                    // Take damage
-                    TakeDamage(0.5);
+                    // Take damage amount
+                    TakeDamage(10);
                 }
             }
         }
@@ -93,11 +99,26 @@ public class Cut_Action : MonoBehaviour
 
     public void TakeDamage(double damage)
     {
+        // Show pig sad face
+        painOverlay.SetActive(true);
+
+        // Play audio
+        pigPain.Play();
+
+        //Subtracts from health amount
         healthAmount -= damage;
 
-        if (healthAmount <= 0)
+        //Removes green bar from health bar UI
+        healthBar.fillAmount = (float)(healthAmount / 100f);
+        
+
+        //When health is at zero
+        if (healthAmount == 0)
         {
             Debug.Log("Pig is dead");
+
+            //Trigger particle explosion from pigBehavior script
+            pigBehavior.TriggerExplosion();
         }
 
         // Remove green bar from health bar UI
