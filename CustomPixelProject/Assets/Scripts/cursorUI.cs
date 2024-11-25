@@ -8,18 +8,31 @@ public class cursorUI : MonoBehaviour
 
     public CursorScript cursorScript; // Reference to the CursorScript
 
-    public Button modeSwitchButton;  // Reference to the UI Button
+    public Button petModeButton;  // Reference to the UI Button
+    public Button knifeModeButton;  // Reference to the UI Button
 
     void Start()
     {
 
-        modeSwitchButton.onClick.AddListener(SwitchMode);
+        petModeButton.onClick.AddListener(petSwitchMode);
+        knifeModeButton.onClick.AddListener(knifeSwitchMode);
+        
         
     }
 
     // Update is called once per frame
-    public void SwitchMode()
+    public void petSwitchMode()
     {
-        cursorScript.handModeSwitch();
+        cursorScript.petModeToggle();
+ 
     }
+
+    public void knifeSwitchMode()
+    {
+
+        cursorScript.knifeModeToggle();
+ 
+    }
+
+
 }

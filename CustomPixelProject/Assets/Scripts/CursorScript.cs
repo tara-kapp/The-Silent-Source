@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class CursorScript : MonoBehaviour
 {
-
-
-
-    public GameObject Cursor1; // Assign via Inspector
-    public Button modeSwitchButton;   // Reference to the UI Button
+     public GameObject Cursor1; // Assign via Inspector
+    public Button petModeSwitchButton;   // Reference to the UI Button
+    public Button knifeModeSwitchButton;   // Reference to the UI Button
 
     private SpriteRenderer spriteRenderer;
+
+    public Sprite defaultSprite; // default Sprite
     public Sprite knifeSprite; // SpriteRenderer for the knife
     public Sprite handSprite;  // SpriteRenderer for the hand
     public Sprite handPettingSprite;  // SpriteRenderer for the hand
@@ -29,15 +29,23 @@ public class CursorScript : MonoBehaviour
     private Quaternion targetRotation;       // Target rotation on mouse press
     public AudioSource sliceSound;
 
-    public bool petMode;
+    public string defaultMode = "DEFAULT";
+    public string petMode = "PETMODE";
+    public string knifeMode = "KNIFEMODE";
+
+    public string modeState = "";
+
     public bool isPetting = false;
 
     void Start()
     {
+        modeState = defaultMode;
+        Cursor.visible = false;
 
-        petMode = false;
 
-        modeSwitchButton.onClick.AddListener(handModeSwitch);
+
+        petModeSwitchButton.onClick.AddListener(petModeToggle);
+        knifeModeSwitchButton.onClick.AddListener(knifeModeToggle);
         // Initialize rotations
         originalRotation = knifeTransform.rotation;
         targetRotation = Quaternion.Euler(0, 0, rotationAngle);
@@ -49,7 +57,8 @@ public class CursorScript : MonoBehaviour
 
         // Initialize sprite render and configure sprites
         spriteRenderer = Cursor1.GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = knifeSprite;
+        spriteRenderer.sprite = defaultSprite;
+        Debug.Log("STATE: " + getMode());
         
     }
 
@@ -58,13 +67,19 @@ public class CursorScript : MonoBehaviour
         // Get the mouse position
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        // Determine movement speed based on mouse button state
-        float currentSpeed = Input.GetMouseButton(0) ? swipeSpeed : normalSpeed;
+        if(modeState == knifeMode)
+        {
+            // Determine movement speed based on mouse button state
+            float currentSpeed = Input.GetMouseButton(0) ? swipeSpeed : normalSpeed;
+            // Move the knife smoothly toward the cursor
+            knifeTransform.position = Vector2.Lerp(knifeTransform.position, mousePosition, Time.deltaTime * currentSpeed);
+        }
 
-        // Move the knife smoothly toward the cursor
-        knifeTransform.position = Vector2.Lerp(knifeTransform.position, mousePosition, Time.deltaTime * currentSpeed);
-
-        if ((Input.GetMouseButton(0)) && (!petMode)) 
+        else
+        {
+            Cursor1.transform.position = mousePosition;
+        }
+        if ((Input.GetMouseButton(0)) && (modeState == knifeMode)) 
         {
             sliceSound.Play();
             // Rotate the knife toward the target rotation
@@ -86,18 +101,18 @@ public class CursorScript : MonoBehaviour
                 trailRenderer.colorGradient = normalColor;
             }
         }
-        else if ((Input.GetMouseButton(0)) && (petMode))
+        else if ((Input.GetMouseButton(0)) && (modeState == petMode))
         {
 
             spriteRenderer.sprite = handPettingSprite;
         }
-        else if ((!Input.GetMouseButton(0)) && (petMode))
+        else if ((!Input.GetMouseButton(0)) && (modeState == petMode))
         {
 
             spriteRenderer.sprite = handSprite;
             trailRenderer.emitting = false;
         }
-        else if ((!Input.GetMouseButton(0)) && (!petMode))
+        else if ((!Input.GetMouseButton(0)) && (modeState != petMode))
         {
 
             // Reset the knife to its original rotation
@@ -109,29 +124,47 @@ public class CursorScript : MonoBehaviour
     }
 
 
-    public void handModeSwitch()
+public void petModeToggle()
+{
+    if (modeState != petMode)
     {
-         // Toggle the state of petMode
-        petMode = !petMode;
-
-        // Change the cursor sprite based on the state
-        if (petMode)
-        {
-            spriteRenderer.sprite = handSprite;
-            Debug.Log("Pet mode activated");
-        }
-        else
-        {
-            spriteRenderer.sprite = knifeSprite;
-            Debug.Log("Pet mode deactivated");
-        }
+        modeState = petMode;
+        spriteRenderer.sprite = handSprite;
+        Debug.Log("Pet mode activated");
+        
+    }
+    else
+    {
+        modeState = defaultMode;
+        spriteRenderer.sprite = defaultSprite;
+        Debug.Log("Defaulted");
     }
 
-
-    public bool getMode()
-    {
-        return petMode;
-    }
+    Debug.Log("STATE: " + getMode());
 
 }
 
+public void knifeModeToggle()
+{
+    if (modeState != knifeMode)
+    {
+        modeState = knifeMode;
+        spriteRenderer.sprite = knifeSprite;
+        Debug.Log("Knife mode activated");
+    }
+    else
+    {
+        modeState = defaultMode;
+        spriteRenderer.sprite = defaultSprite;
+        Debug.Log("Defaulted");
+    }
+    Debug.Log("STATE: " + getMode());
+}
+
+
+    public string getMode()
+    {
+        return modeState;
+    }
+
+}
