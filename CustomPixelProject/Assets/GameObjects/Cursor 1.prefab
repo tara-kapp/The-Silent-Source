@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1342016357496190066}
   - component: {fileID: 1342016357496190065}
   - component: {fileID: 1342016357496190064}
+  - component: {fileID: 1711911202550593108}
   m_Layer: 0
   m_Name: Cursor 1
   m_TagString: Untagged
@@ -97,6 +98,176 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e656d59c7f6653049bb950342c363926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorSprite: {fileID: 1342016357496190065}
+  Cursor1: {fileID: 1342016357496190071}
+  petModeSwitchButton: {fileID: 0}
+  knifeModeSwitchButton: {fileID: 0}
+  defaultSprite: {fileID: -2413806693520163455, guid: 16becdafe5ae33042a088d81c833cd34, type: 3}
   knifeSprite: {fileID: 21300000, guid: c026ae85f9e9dcd43853fe9f09158c20, type: 3}
-  magnifierSprite: {fileID: 21300000, guid: 79a7ddf9117cbf74d9a976e802b98d88, type: 3}
+  handSprite: {fileID: 21300000, guid: fd7231997db52684b84dee1d87569d79, type: 3}
+  handPettingSprite: {fileID: 21300000, guid: abaf9545f83785b40912ec25f2659db0, type: 3}
+  trailRenderer: {fileID: 0}
+  normalColor:
+    serializedVersion: 2
+    key0: {r: 0.735849, g: 0.7184941, b: 0.7184941, a: 1}
+    key1: {r: 0.14150941, g: 0.13149695, b: 0.13149695, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 56476
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  targetSpriteColor:
+    serializedVersion: 2
+    key0: {r: 0.122641504, g: 0.020247415, b: 0.020247415, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 20046
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  knifeTransform: {fileID: 1342016357496190066}
+  normalSpeed: 5
+  swipeSpeed: 50
+  rotationAngle: 25
+  rotationSpeed: 5
+  sliceSound: {fileID: 0}
+  defaultMode: DEFAULT
+  petMode: PETMODE
+  knifeMode: KNIFEMODE
+  modeState: 
+  isPetting: 0
+--- !u!82 &1711911202550593108
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342016357496190071}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 36e058aaf973da84e874542f814bb518, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
