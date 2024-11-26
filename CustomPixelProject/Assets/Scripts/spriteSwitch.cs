@@ -13,8 +13,6 @@ public class spriteSwitch : MonoBehaviour
     public TMP_Text headingText;
     public TMP_Text messageText;
 
-    public int[] fontsize;
-
     private string[] headings = {
         "Bullets",
         "Shampoo",
@@ -64,21 +62,9 @@ public class spriteSwitch : MonoBehaviour
 
     public GameObject gameobject;
 
-    // Update is called once per frame
-
-    void Start(){
-        //gameobject.SetActive(false);
-    }
-
-    void Update(){
-        
-    }
-
     public void OnClick(){
         UpdateSprite();
         gameobject.SetActive(true);
-        Debug.Log(spriteNum);
-        
     }
 
     public void OnExit(){
@@ -88,6 +74,6 @@ public class spriteSwitch : MonoBehaviour
         sprite.texture = spriteArray[spriteNum];
         messageText.SetText(descriptions[spriteNum]);
         headingText.SetText(headings[spriteNum]);
-        messageText.fontSize = fontsize[spriteNum];
+        messageText.fontSize = 16;
     }
 }
