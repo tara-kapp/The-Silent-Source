@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 25913501}
         m_TargetAssemblyTypeName: cursorUI, Assembly-CSharp
-        m_MethodName: SwitchMode
+        m_MethodName: petSwitchMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -270,8 +270,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorScript: {fileID: 674279886}
-  petModeButton: {fileID: 0}
-  knifeModeButton: {fileID: 0}
+  petModeButton: {fileID: 25913498}
+  knifeModeButton: {fileID: 772230063}
 --- !u!1 &70461170
 GameObject:
   m_ObjectHideFlags: 0
@@ -6307,8 +6307,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorScript: {fileID: 674279886}
-  petModeButton: {fileID: 0}
-  knifeModeButton: {fileID: 0}
+  petModeButton: {fileID: 25913498}
+  knifeModeButton: {fileID: 772230063}
 --- !u!114 &772230063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6355,7 +6355,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 772230062}
         m_TargetAssemblyTypeName: cursorUI, Assembly-CSharp
-        m_MethodName: SwitchMode
+        m_MethodName: knifeSwitchMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

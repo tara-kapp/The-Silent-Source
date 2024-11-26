@@ -19,8 +19,8 @@ public class PigManager : MonoBehaviour
     public GameObject itemSpawn;
     
     private Queue<GameObject> pigQueue = new Queue<GameObject>();
-    private GameObject currentPig;
-
+    private GameObject currentPig;    
+    public Sprite assignedItem;
 
 
     // Start is called before the first frame update
@@ -28,6 +28,7 @@ public class PigManager : MonoBehaviour
     {
         //Randomize the list of items
         manMadeItems = manMadeItems.OrderBy(x => Random.value).ToList();
+        Debug.Log(manMadeItems[0]);
 
         //Initialize pigs
         foreach (Sprite item in manMadeItems)
@@ -37,27 +38,19 @@ public class PigManager : MonoBehaviour
             //Instantiate pig with at spawnpoint. pig clones go under pig parent
             GameObject pig = Instantiate(pigPrefab, spawnPoint.position, Quaternion.identity, parentTransform);
 
+            PigBehavior pigBehavior = pig.GetComponent<PigBehavior>();
+            pigBehavior.assignedItem = item;
+
+
             //Assign item to pig prefab
-            pigPrefab.GetComponent<PigBehavior>().AssignItem(item);
+            //AssignItem(currentPigIndex, item);
             
             pigQueue.Enqueue(pig);
         }         
 
         //Call function to bring out the pig from right side of screen
         MoveNextPig();        
-    }
-
-    private void SetDisplaySprite(Sprite item)
-    {
-        SpriteRenderer renderer = itemSpawn.GetComponent<SpriteRenderer>();
-        if (renderer != null)
-        {
-            renderer = itemSpawn.AddComponent<SpriteRenderer>();
-        }
-
-        renderer.sprite = item;
-    }
-
+    }    
 
     public void MoveNextPig()
     {
@@ -101,13 +94,4 @@ public class PigManager : MonoBehaviour
 
         onComplete?.Invoke();
     }
-
-    public List<Sprite> getManMadeItems()
-    {
-
-        return manMadeItems;
-
-    }
-
-
 }

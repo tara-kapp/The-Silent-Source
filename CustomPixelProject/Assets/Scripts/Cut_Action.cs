@@ -51,19 +51,12 @@ public class Cut_Action : MonoBehaviour
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             currentPosition.z = 0;
 
-            // Raycast to detect if the mouse is over the pig sprite
+            // Raycast to detect if the mouse is inside pig sprite
             RaycastHit2D hit = Physics2D.Raycast(currentPosition, Vector2.zero);
 
             // If cursor is inside pig sprite
             if (hit.collider != null && hit.collider.gameObject == this.gameObject)
             {
-                if (painOverlay != null)
-                {
-                    // Toggle the overlay on each click
-                    painOverlay.SetActive(!painOverlay.activeSelf);
-                    pigPain.Play();
-                }
-
                 // Check the position of sprites and spacing of sprites (defined in inspector)
                 if (Vector3.Distance(currentPosition, lastPosition) >= spacing)
                 {
@@ -125,31 +118,34 @@ public class Cut_Action : MonoBehaviour
         healthBar.fillAmount = (float)(healthAmount / 100f);
     }
 
+
+
+    //Cut sprites
     private IEnumerator ScaleOverTime(Transform cutTransform, Vector3 position)
-{
-    SpriteRenderer spriteRenderer = cutTransform.GetComponent<SpriteRenderer>();
-    if (spriteRenderer == null) yield break; // Ensure the prefab has a SpriteRenderer
+        {
+            SpriteRenderer spriteRenderer = cutTransform.GetComponent<SpriteRenderer>();
+            if (spriteRenderer == null) yield break; // Ensure the prefab has a SpriteRenderer
 
-    // Initialize base size
-    Vector3 baseScale = cutTransform.localScale;
+            // Initialize base size
+            Vector3 baseScale = cutTransform.localScale;
 
 
 
-    while (dwellTimes.ContainsKey(position))
-    {
-        dwellTimes[position] += Time.deltaTime;
+            while (dwellTimes.ContainsKey(position))
+            {
+                dwellTimes[position] += Time.deltaTime;
 
-        // Incrementally grow the sprite
-        float scaleFactor = Mathf.Clamp(1 + dwellTimes[position] * dwellIncrement, 1, maxScaleFactor);
+                // Incrementally grow the sprite
+                float scaleFactor = Mathf.Clamp(1 + dwellTimes[position] * dwellIncrement, 1, maxScaleFactor);
 
-        // Apply constrained scaling
-        cutTransform.localScale = baseScale * scaleFactor;
+                // Apply constrained scaling
+                cutTransform.localScale = baseScale * scaleFactor;
 
-        // Stop scaling when max size is reached
-        if (scaleFactor >= maxScaleFactor) break;
+                // Stop scaling when max size is reached
+                if (scaleFactor >= maxScaleFactor) break;
 
-        yield return null;
-    }
-}
+                yield return null;
+            }
+        }
 
 }

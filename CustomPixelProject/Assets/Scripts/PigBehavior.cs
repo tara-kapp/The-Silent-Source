@@ -5,55 +5,45 @@ using UnityEngine;
 
 public class PigBehavior : MonoBehaviour
 {
-
-
-
     public ParticleSystem explosionEffect;
-    private SpriteRenderer pigSpriteRenderer;
-    private Sprite assignedItem;
-    public Sprite itemSpawn;
+    private SpriteRenderer pigSpriteRenderer;      
     public ParticleSpriteManager particleSpriteManager;
+    public Sprite assignedItem;
 
 
     void Start()
     {
-
-        pigSpriteRenderer = GetComponent<SpriteRenderer>();
-        
+        pigSpriteRenderer = GetComponent<SpriteRenderer>(); 
        
     }
-
-    public void AssignItem(Sprite item)
-    {
-        assignedItem = item;        
-    }
-    
-
+    // Function occurs after pig reaches max damage
     public void TriggerExplosion()
-    {        
+    {
+        
         if(particleSpriteManager != null)
         {
-            particleSpriteManager.SetParticleSprite(assignedItem);
+            // Assigns particles to cooresponding pig item
+            particleSpriteManager.UpdateParticleSprite(assignedItem);            
         }
 
-
+        // Instantiate particle explosion
         Instantiate(explosionEffect, transform.position, Quaternion.identity).Play();
         
-        //Debug.Log($"Reveleaing item: {assignedItem.name}");
-
+        // Check to see if particles have ended
         if (explosionEffect.isStopped)
         {
-            StartCoroutine(DelayedFunction(10f));
+            // Delay Coroutine
+            StartCoroutine(DelayedFunction(5f));
 
-            //Sets timer to delay pig movement
+            // Sets timer to delay pig movement
             IEnumerator DelayedFunction(float delay)
             {
                 yield return new WaitForSeconds(delay);
-                FindObjectOfType<PigManager>().RemoveCurrentPig();
-            }
 
-            
+                // Removes pig off screen
+                FindObjectOfType<PigManager>().RemoveCurrentPig();
+            }          
 
         }        
-    }
+    }    
 }
