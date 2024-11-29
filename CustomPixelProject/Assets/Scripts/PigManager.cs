@@ -27,26 +27,21 @@ public class PigManager : MonoBehaviour
     void Start()
     {
         //Randomize the list of items
-        manMadeItems = manMadeItems.OrderBy(x => Random.value).ToList();
-        Debug.Log(manMadeItems[0]);
+        manMadeItems = manMadeItems.OrderBy(x => Random.value).ToList();        
 
         //Initialize pigs
         foreach (Sprite item in manMadeItems)
         {
             int index = manMadeItems.IndexOf(item);            
 
-            //Instantiate pig with at spawnpoint. pig clones go under pig parent
+            //Instantiate pig at spawnpoint. pig clones go under pig parent
             GameObject pig = Instantiate(pigPrefab, spawnPoint.position, Quaternion.identity, parentTransform);
 
             PigBehavior pigBehavior = pig.GetComponent<PigBehavior>();
-            pigBehavior.assignedItem = item;
+            pigBehavior.assignedItem = item;            
 
-
-            //Assign item to pig prefab
-            //AssignItem(currentPigIndex, item);
-            
             pigQueue.Enqueue(pig);
-        }         
+        }
 
         //Call function to bring out the pig from right side of screen
         MoveNextPig();        
@@ -65,7 +60,7 @@ public class PigManager : MonoBehaviour
         }
     }
 
-    // Moves pig from center and out of screen
+    // Moves pig from center >> out of screen
     public void RemoveCurrentPig()
     {
         if(currentPig != null)
@@ -80,6 +75,7 @@ public class PigManager : MonoBehaviour
         }
     }
 
+    // Creates pig movement
     private IEnumerator MovePigToPosition(GameObject pig, Vector3 targetPosition, System.Action onComplete = null)
     {
         //Set speed pig moves on conveyor belt

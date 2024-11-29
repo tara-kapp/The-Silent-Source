@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ParticleSpriteManager : MonoBehaviour
@@ -12,9 +13,25 @@ public class ParticleSpriteManager : MonoBehaviour
     public Transform StartPoint; 
     public Transform EndPoint;
 
-    
+    public Sprite assignedItem;
+    public GameObject ItemSpawn;
+    public SpriteRenderer itemSprite;
+
+
     void Start()
     {
+        
+    }
+
+    public void ShowItemSprite(Sprite sprite)
+    {
+        if(ItemSpawn != null)
+        {
+            SpriteRenderer itemSprite = ItemSpawn.AddComponent<SpriteRenderer>();
+
+            itemSprite.sprite = sprite;
+        }
+
 
     }
 
@@ -24,8 +41,11 @@ public class ParticleSpriteManager : MonoBehaviour
         if (ParticleSystem != null && sprite != null )
         {
             var texturesheet = ParticleSystem.textureSheetAnimation;
-             texturesheet.SetSprite(0, sprite);            
+             texturesheet.SetSprite(0, sprite);    
         }
+
+        ShowItemSprite(sprite);
+                
     }
     
     void Update()

@@ -5138,6 +5138,9 @@ MonoBehaviour:
   ParticleSystem: {fileID: 137738324}
   StartPoint: {fileID: 2068526159}
   EndPoint: {fileID: 978225712}
+  assignedItem: {fileID: 0}
+  ItemSpawn: {fileID: 1395450071}
+  itemSprite: {fileID: 0}
 --- !u!1 &175963220
 GameObject:
   m_ObjectHideFlags: 0
@@ -5807,7 +5810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395450071}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.3, y: 3.77, z: 0}
+  m_LocalPosition: {x: 9.6, y: 5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

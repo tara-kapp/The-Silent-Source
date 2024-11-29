@@ -29,6 +29,8 @@ public class PigBehavior : MonoBehaviour
         // Instantiate particle explosion
         Instantiate(explosionEffect, transform.position, Quaternion.identity).Play();
         
+        
+
         // Check to see if particles have ended
         if (explosionEffect.isStopped)
         {
