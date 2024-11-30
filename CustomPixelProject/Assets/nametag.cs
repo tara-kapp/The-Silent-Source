@@ -28,10 +28,8 @@ public class nametag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateName();
     }
 
     void updateName() {
-        pigName.SetText("Hello, my name is " + names[pigNum]);
     }
 }

@@ -10,8 +10,12 @@ public class spriteSwitch : MonoBehaviour
     public int spriteNum;
     public RawImage sprite;
 
+    public Image buttonSprite;
+
     public TMP_Text headingText;
     public TMP_Text messageText;
+
+    private string spriteName;
 
     private string[] headings = {
         "Bullets",
@@ -63,8 +67,80 @@ public class spriteSwitch : MonoBehaviour
     public GameObject gameobject;
 
     public void OnClick(){
+        
+        CheckSprite();
         UpdateSprite();
+        
         gameobject.SetActive(true);
+    }
+
+    public void CheckSprite(){
+        spriteName = buttonSprite.sprite.name;
+        Debug.Log(spriteName);
+        
+        if( spriteName == "bullets"){
+            spriteNum = 0;
+        }
+        else if( spriteName == "shampoo"){
+            spriteNum = 1;
+        }
+        else if( spriteName == "chair"){
+            spriteNum = 2;
+        }
+        else if( spriteName == "chalk"){
+            spriteNum = 3;
+        }
+        else if( spriteName == "crayons"){
+            spriteNum = 4;
+        }
+        else if( spriteName == "dogfood"){
+            spriteNum = 5;
+        }
+        else if( spriteName == "fabric"){
+            spriteNum = 6;
+        }
+        else if( spriteName == "fertilizer"){
+            spriteNum = 7;
+        }
+        else if( spriteName == "football"){
+            spriteNum = 8;
+        }
+        else if( spriteName == "candle"){
+            spriteNum = 9;
+        }
+        else if( spriteName == "glue"){
+            spriteNum = 10;
+        }
+        else if( spriteName == "heart"){
+            spriteNum = 11;
+        }
+        else if( spriteName == "insulin"){
+            spriteNum = 12;
+        }
+        else if( spriteName == "jello"){
+            spriteNum = 13;
+        }
+        else if( spriteName == "leather"){
+            spriteNum = 14;
+        }
+        else if( spriteName == "matches"){
+            spriteNum = 15;
+        }
+        else if( spriteName == "medicine"){
+            spriteNum = 16;
+        }
+        else if( spriteName == "brushes"){
+            spriteNum = 17;
+        }
+        else if( spriteName == "cork"){
+            spriteNum = 18;
+        }
+        else if( spriteName == "suitcase"){
+            spriteNum = 19;
+        }
+        else if( spriteName == "teacup"){
+            spriteNum = 20;
+        }
     }
 
     public void OnExit(){
