@@ -10,12 +10,16 @@ public class spriteSwitch : MonoBehaviour
     public int spriteNum;
     public RawImage sprite;
 
-    public Image buttonSprite;
+    public RawImage buttonSprite;
 
     public TMP_Text headingText;
     public TMP_Text messageText;
 
     private string spriteName;
+
+    public List<Sprite> manMadeItems;
+
+    public Texture[] textureArray;
 
     private string[] headings = {
         "Bullets",
@@ -66,17 +70,27 @@ public class spriteSwitch : MonoBehaviour
 
     public GameObject gameobject;
 
+    public void Start(){
+        //Debug.Log(manMadeItems[0].name);
+        //UpdateButton(manMadeItems[0].name);
+    }
+
     public void OnClick(){
         
-        CheckSprite();
+        //CheckSprite();
         UpdateSprite();
         
         gameobject.SetActive(true);
     }
 
-    public void CheckSprite(){
-        spriteName = buttonSprite.sprite.name;
-        Debug.Log(spriteName);
+    public void PassingList(List<Sprite> items){
+        manMadeItems = items;
+    }
+
+    public void CheckSprite(Sprite sprite){
+        
+        spriteName = sprite.name;
+        
         
         if( spriteName == "bullets"){
             spriteNum = 0;
@@ -140,6 +154,21 @@ public class spriteSwitch : MonoBehaviour
         }
         else if( spriteName == "teacup"){
             spriteNum = 20;
+        }
+    }
+
+    public void UpdateButton(string name){
+        for( int i = 0; i < 2; i++){
+            string item = manMadeItems[i].name;
+
+            if( item == "bullets"){
+                sprite.texture = textureArray[0];
+            }
+            else if (item == "shampoo"){
+                sprite.texture = textureArray[1];
+            }
+
+
         }
     }
 

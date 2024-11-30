@@ -22,12 +22,17 @@ public class PigManager : MonoBehaviour
     private GameObject currentPig;    
     public Sprite assignedItem;
 
+    public spriteSwitch spriteSwitch;
+
 
     // Start is called before the first frame update
     void Start()
     {
         //Randomize the list of items
         manMadeItems = manMadeItems.OrderBy(x => Random.value).ToList();        
+
+
+        //spriteSwitch.PassingList(manMadeItems);
 
         //Initialize pigs
         foreach (Sprite item in manMadeItems)

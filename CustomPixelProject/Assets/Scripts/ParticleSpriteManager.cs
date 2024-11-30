@@ -17,6 +17,8 @@ public class ParticleSpriteManager : MonoBehaviour
     public GameObject ItemSpawn;
     public SpriteRenderer itemSprite;
 
+    public spriteSwitch spriteSwitch;
+
 
     void Start()
     {
@@ -25,15 +27,26 @@ public class ParticleSpriteManager : MonoBehaviour
 
     public void ShowItemSprite(Sprite sprite)
     {
+        
         if(ItemSpawn != null)
         {
             SpriteRenderer itemSprite = ItemSpawn.AddComponent<SpriteRenderer>();
             Debug.Log(sprite.name);
             itemSprite.sprite = sprite;
+            Debug.Log(sprite.name);
+            spriteSwitch.CheckSprite(sprite);
         }
+        
 
 
     }
+
+    public void RemoveItemSprite(){
+        Destroy(ItemSpawn);
+        ItemSpawn = new GameObject("ItemSpawn");
+        ItemSpawn.transform.Translate(0, 8, 0);
+    }
+
 
     // Changes particle sprites based on pig item
     public void UpdateParticleSprite(Sprite sprite)
@@ -43,8 +56,9 @@ public class ParticleSpriteManager : MonoBehaviour
             var texturesheet = ParticleSystem.textureSheetAnimation;
              texturesheet.SetSprite(0, sprite);    
         }
-
+        RemoveItemSprite();
         ShowItemSprite(sprite);
+        
                 
     }
     
