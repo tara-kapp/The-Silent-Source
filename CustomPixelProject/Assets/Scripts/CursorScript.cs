@@ -33,13 +33,14 @@ public class CursorScript : MonoBehaviour
     public string petMode = "PETMODE";
     public string knifeMode = "KNIFEMODE";
 
+    public float petTime = 5f;
+
     public string modeState = "";
 
     public bool isPetting = false;
 
     void Start()
     {
-        modeState = defaultMode;
         Cursor.visible = false;
 
 
@@ -57,8 +58,7 @@ public class CursorScript : MonoBehaviour
 
         // Initialize sprite render and configure sprites
         spriteRenderer = Cursor1.GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = defaultSprite;
-        Debug.Log("STATE: " + getMode());
+        activatePetMode();
         
     }
 
@@ -128,17 +128,12 @@ public void petModeToggle()
 {
     if (modeState != petMode)
     {
-        modeState = petMode;
-        spriteRenderer.sprite = handSprite;
-        Debug.Log("Pet mode activated");
-        
+            activatePetMode();
     }
     else
     {
-        modeState = defaultMode;
-        spriteRenderer.sprite = defaultSprite;
-        Debug.Log("Defaulted");
-    }
+            activateKnifeMode();
+        }
 
     Debug.Log("STATE: " + getMode());
 
@@ -148,23 +143,37 @@ public void knifeModeToggle()
 {
     if (modeState != knifeMode)
     {
-        modeState = knifeMode;
-        spriteRenderer.sprite = knifeSprite;
-        Debug.Log("Knife mode activated");
+            activateKnifeMode();
     }
     else
     {
-        modeState = defaultMode;
-        spriteRenderer.sprite = defaultSprite;
-        Debug.Log("Defaulted");
+            activatePetMode();
     }
     Debug.Log("STATE: " + getMode());
 }
 
 
-    public string getMode()
+public string getMode()
+{
+    return modeState;
+}
+
+public void activateKnifeMode()
     {
-        return modeState;
+        modeState = knifeMode;
+        spriteRenderer.sprite = knifeSprite;
+        Debug.Log("Knife mode activated");
+
     }
+
+public void activatePetMode()
+    {
+        modeState = petMode;
+        spriteRenderer.sprite = handSprite;
+        Debug.Log("Defaulted to Pet");
+
+        Invoke("activateKnifeMode", petTime);
+    }
+
 
 }
