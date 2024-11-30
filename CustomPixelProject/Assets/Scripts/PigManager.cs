@@ -13,7 +13,6 @@ public class PigManager : MonoBehaviour
     public Transform offScreenPoint;
     public Transform parentTransform;
     public GameObject painOverlay;
-    public cursorUI cursorButton;
 
     [Header("Man-Made Items")]
     public List<Sprite> manMadeItems;
@@ -22,9 +21,6 @@ public class PigManager : MonoBehaviour
     private Queue<GameObject> pigQueue = new Queue<GameObject>();
     private GameObject currentPig;    
     public Sprite assignedItem;
-
-
-    private bool isPigInPos = false;
 
 
     // Start is called before the first frame update
@@ -53,7 +49,6 @@ public class PigManager : MonoBehaviour
 
     public void MoveNextPig()
     {
-        cursorButton.resetDecisionMade();
         if(pigQueue.Count > 0)
         {
             currentPig = pigQueue.Dequeue();
@@ -69,8 +64,7 @@ public class PigManager : MonoBehaviour
     public void RemoveCurrentPig()
     {
         if(currentPig != null)
-        {
-            isPigInPos = false;
+        {            
             StartCoroutine(MovePigToPosition(currentPig, offScreenPoint.position, () =>
             { 
                 //Destroys asset
@@ -94,16 +88,6 @@ public class PigManager : MonoBehaviour
             yield return null;
         }
 
-        if (targetPosition == conveyorEndPoint.position)
-        {
-            isPigInPos = true;
-        }
-
         onComplete?.Invoke();
-    }
-
-    public bool getIfPigInPos()
-    {
-        return isPigInPos;
     }
 }
