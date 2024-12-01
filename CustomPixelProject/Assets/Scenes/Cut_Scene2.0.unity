@@ -5138,6 +5138,9 @@ MonoBehaviour:
   ParticleSystem: {fileID: 137738324}
   StartPoint: {fileID: 2068526159}
   EndPoint: {fileID: 978225712}
+  assignedItem: {fileID: 0}
+  ItemSpawn: {fileID: 0}
+  itemSprite: {fileID: 0}
 --- !u!1 &175963220
 GameObject:
   m_ObjectHideFlags: 0
@@ -5206,8 +5209,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -74, y: 0}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchoredPosition: {x: -50, y: -4}
+  m_SizeDelta: {x: 106.3723, y: 106.3723}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &209163012
 MonoBehaviour:
@@ -5357,8 +5360,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 163.1, y: 606.3}
-  m_SizeDelta: {x: -1600, y: -950}
+  m_AnchoredPosition: {x: 24, y: 602.49}
+  m_SizeDelta: {x: -1690.3401, y: -965.424}
   m_Pivot: {x: 0.39940768, y: 0.5}
 --- !u!114 &316243583
 MonoBehaviour:
@@ -5785,7 +5788,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 2d435e95f78340a429b4e151ffc98de7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.6037736, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6636,8 +6639,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 76, y: 0}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchoredPosition: {x: 56.37227, y: -3.999958}
+  m_SizeDelta: {x: 106.3723, y: 106.3723}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1689504066
 GameObject:
