@@ -11,31 +11,26 @@ public class Cut_Action : MonoBehaviour
     public GameObject painOverlay;
     public Transform parentTransform;
     public AudioSource pigPain;
-
     private List<Vector3> cutPath = new List<Vector3>();
     private Vector3 lastPosition;
-
     public Image healthBar;
     public double healthAmount = 100f;
-
     public float dwellIncrement = 0.1f;
     public float maxScaleFactor = 1.5f;
-
     public PigBehavior pigBehavior;
-
     private Dictionary<Vector3, float> dwellTimes = new Dictionary<Vector3, float>(); // To track dwell times
+    public CursorScript cursorScript;
+    public PigManager pigManager;
+
 
     void Start()
     {
         // Turn sad face off
         painOverlay.SetActive(false);
-
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-
         // Reference PigBehavior script
         pigBehavior = GetComponent<PigBehavior>();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -45,7 +40,6 @@ public class Cut_Action : MonoBehaviour
             lastPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             lastPosition.z = 0;
         }
-
         if (Input.GetMouseButton(0))
         {
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -55,7 +49,7 @@ public class Cut_Action : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(currentPosition, Vector2.zero);
 
             // If cursor is inside pig sprite
-            if (hit.collider != null && hit.collider.gameObject == this.gameObject)
+            if (hit.collider != null && hit.collider.gameObject == this.gameObject && cursorScript.getMode() == "KNIFEMODE" && pigManager.getIfPigInPos() )
             {
                 // Check the position of sprites and spacing of sprites (defined in inspector)
                 if (Vector3.Distance(currentPosition, lastPosition) >= spacing)
@@ -94,17 +88,12 @@ public class Cut_Action : MonoBehaviour
     {
         // Show pig sad face
         painOverlay.SetActive(true);
-
         // Play audio
         pigPain.Play();
-
         //Subtracts from health amount
         healthAmount -= damage;
-
         //Removes green bar from health bar UI
         healthBar.fillAmount = (float)(healthAmount / 100f);
-        
-
         //When health is at zero
         if (healthAmount == 0)
         {
