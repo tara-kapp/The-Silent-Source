@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class PigManager : MonoBehaviour
 {
     [Header("Pig Settings")]
@@ -26,7 +26,11 @@ public class PigManager : MonoBehaviour
 
     public spriteSwitch spriteSwitch;
 
+    public List<Sprite> nametags;
 
+    public Image nametag;
+
+    public int i;
     private bool isPigInPos = false;
 
     public string nextSceneName = "End_Cutscene";
@@ -35,9 +39,11 @@ public class PigManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        i = 0;
         //Randomize the list of items
-        manMadeItems = manMadeItems.OrderBy(x => Random.value).ToList();        
-
+        manMadeItems = manMadeItems.OrderBy(x => Random.value).ToList(); 
+        //Randomize the list of nametags
+        nametags = nametags.OrderBy(x => Random.value).ToList();
 
         //spriteSwitch.PassingList(manMadeItems);
 
@@ -61,7 +67,14 @@ public class PigManager : MonoBehaviour
 
     public void MoveNextPig()
     {
+
         cursorButton.resetDecisionMade();
+
+        //set nametag sprite and increment i
+        nametag.sprite = nametags[i];
+        i++;
+
+
         if(pigQueue.Count > 0)
         {
             currentPig = pigQueue.Dequeue();
