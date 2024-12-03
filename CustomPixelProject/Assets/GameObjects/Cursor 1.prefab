@@ -103,7 +103,7 @@ MonoBehaviour:
   knifeModeSwitchButton: {fileID: 0}
   defaultSprite: {fileID: -2413806693520163455, guid: 16becdafe5ae33042a088d81c833cd34, type: 3}
   knifeSprite: {fileID: 21300000, guid: c026ae85f9e9dcd43853fe9f09158c20, type: 3}
-  handSprite: {fileID: 21300000, guid: fd7231997db52684b84dee1d87569d79, type: 3}
+  handSprite: {fileID: 21300000, guid: 37edec8e625ba4dfc9c412c74a61e896, type: 3}
   handPettingSprite: {fileID: 21300000, guid: abaf9545f83785b40912ec25f2659db0, type: 3}
   trailRenderer: {fileID: 0}
   normalColor:
@@ -173,6 +173,7 @@ MonoBehaviour:
   defaultMode: DEFAULT
   petMode: PETMODE
   knifeMode: KNIFEMODE
+  petTime: 5
   modeState: 
   isPetting: 0
 --- !u!82 &1711911202550593108
