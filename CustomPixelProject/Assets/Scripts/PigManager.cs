@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PigManager : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class PigManager : MonoBehaviour
 
 
     private bool isPigInPos = false;
+
+    public string nextSceneName = "End_Cutscene";
 
 
     // Start is called before the first frame update
@@ -67,6 +70,7 @@ public class PigManager : MonoBehaviour
         else
         {
             Debug.Log("All pigs processed!");
+            SceneManager.LoadScene(nextSceneName);
         }
     }
 
