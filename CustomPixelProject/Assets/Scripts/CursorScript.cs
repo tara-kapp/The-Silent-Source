@@ -5,16 +5,21 @@ using UnityEngine.UI;
 
 public class CursorScript : MonoBehaviour
 {
-     public GameObject Cursor1; // Assign via Inspector
+    public GameObject Cursor1; // Assign via Inspector
     public Button petModeSwitchButton;   // Reference to the UI Button
     public Button knifeModeSwitchButton;   // Reference to the UI Button
 
     private SpriteRenderer spriteRenderer;
 
-    public Sprite defaultSprite; // default Sprite
+    public PigManager pigMan;
+    public cursorUI cursorButton;
+
     public Sprite knifeSprite; // SpriteRenderer for the knife
     public Sprite handSprite;  // SpriteRenderer for the hand
     public Sprite handPettingSprite;  // SpriteRenderer for the hand
+    public Sprite magnifierSprite;  // SpriteRenderer for the hand
+
+
     public TrailRenderer trailRenderer;       // TrailRenderer for the trail
     public Gradient normalColor;             // Gradient for normal trail color
     public Gradient targetSpriteColor;       // Gradient for trail color when over target sprite
@@ -32,41 +37,50 @@ public class CursorScript : MonoBehaviour
     public string defaultMode = "DEFAULT";
     public string petMode = "PETMODE";
     public string knifeMode = "KNIFEMODE";
+    public string magnifierMode = "MAGNIFYMODE";
 
     public float petTime = 5f;
 
     public string modeState = "";
 
     public bool isPetting = false;
+    public float pettingSpeed = 0.1f;
+    public float pettingDist = 0.5f;
 
     void Start()
     {
-        Cursor.visible = false;
 
-
-
+        // Listening for buttons
         petModeSwitchButton.onClick.AddListener(petModeToggle);
         knifeModeSwitchButton.onClick.AddListener(knifeModeToggle);
         // Initialize rotations
         originalRotation = knifeTransform.rotation;
         targetRotation = Quaternion.Euler(0, 0, rotationAngle);
-
         // Disable trail initially and set trail color
         trailRenderer.emitting = false;
         trailRenderer.colorGradient = normalColor; 
-
-
         // Initialize sprite render and configure sprites
         spriteRenderer = Cursor1.GetComponent<SpriteRenderer>();
-        activatePetMode();
-        
+        activateDefaultMode();
     }
 
     void Update()
     {
         // Get the mouse position
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // Perform a Raycast to detect target sprites
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
+        if (!pigMan.getIfPigInPos() || !cursorButton.isDecisionMade())
+        {
+            activateDefaultMode();
+        }
+
+        if (hit.collider != null && hit.collider.CompareTag("ObjectOfInterest"))
+        {
+            activateMagnifyMode();
+            Debug.Log("Object Identified!.klj");
+        }
         if(modeState == knifeMode)
         {
             // Determine movement speed based on mouse button state
@@ -89,7 +103,6 @@ public class CursorScript : MonoBehaviour
             trailRenderer.emitting = true;
 
             // Perform a Raycast to detect target sprite
-            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
             if (hit.collider != null && hit.collider.CompareTag("TargetSprite"))
             {
                 // Change trail color when over the target sprite
@@ -101,10 +114,11 @@ public class CursorScript : MonoBehaviour
                 trailRenderer.colorGradient = normalColor;
             }
         }
-        else if ((Input.GetMouseButton(0)) && (modeState == petMode))
+        else if ((Input.GetMouseButton(0)) && (modeState == petMode) && !isPetting)
         {
 
             spriteRenderer.sprite = handPettingSprite;
+            StartCoroutine(PettingMotion());
         }
         else if ((!Input.GetMouseButton(0)) && (modeState == petMode))
         {
@@ -114,16 +128,66 @@ public class CursorScript : MonoBehaviour
         }
         else if ((!Input.GetMouseButton(0)) && (modeState != petMode))
         {
-
             // Reset the knife to its original rotation
             knifeTransform.rotation = Quaternion.Lerp(knifeTransform.rotation, originalRotation, Time.deltaTime * rotationSpeed);
-
             // Disable the trail
             trailRenderer.emitting = false;
         }
     }
 
+// Petting Animation while hand hovers over 
+public IEnumerator PettingMotion()
+{
+    isPetting = true;
 
+    // Offset for downward motion
+    Vector3 offset = new Vector3(0, -pettingDist, 0);
+
+    while (Input.GetMouseButton(0) && modeState == petMode)
+    {
+        // Continuously track the mouse position
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0; // Keep it on the 2D plane
+
+        // Calculate the downward and upward positions relative to the current mouse position
+        Vector3 downPosition = mousePosition + offset;
+
+        // Move the hand down
+        float elapsedTime = 0f;
+        while (elapsedTime < pettingSpeed && Input.GetMouseButton(0))
+        {
+            Cursor1.transform.position = Vector3.Lerp(mousePosition, downPosition, elapsedTime / pettingSpeed);
+            elapsedTime += Time.deltaTime;
+
+            // Update mouse position dynamically while animating
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0;
+            downPosition = mousePosition + offset;
+
+            yield return null;
+        }
+
+        // Move the hand back up
+        elapsedTime = 0f;
+        while (elapsedTime < pettingSpeed && Input.GetMouseButton(0))
+        {
+            Cursor1.transform.position = Vector3.Lerp(downPosition, mousePosition, elapsedTime / pettingSpeed);
+            elapsedTime += Time.deltaTime;
+
+            // Update mouse position dynamically while animating
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0;
+            downPosition = mousePosition + offset;
+
+            yield return null;
+        }
+    }
+
+    isPetting = false;
+}
+
+
+// UI Toggle Methods with cursorUI integration
 public void petModeToggle()
 {
     if (modeState != petMode)
@@ -152,28 +216,38 @@ public void knifeModeToggle()
     Debug.Log("STATE: " + getMode());
 }
 
-
 public string getMode()
 {
     return modeState;
 }
-
+// Mode Activation Methods
 public void activateKnifeMode()
     {
+        Cursor.visible = false;
         modeState = knifeMode;
         spriteRenderer.sprite = knifeSprite;
-        Debug.Log("Knife mode activated");
-
     }
 
 public void activatePetMode()
     {
+        Cursor.visible = false;
         modeState = petMode;
         spriteRenderer.sprite = handSprite;
-        Debug.Log("Defaulted to Pet");
-
         Invoke("activateKnifeMode", petTime);
     }
 
-
+public void activateDefaultMode()
+    {
+        Cursor.visible = true;
+        modeState = defaultMode;
+        spriteRenderer.sprite = null;
+    }
+public void activateMagnifyMode()
+    {
+        Cursor.visible = false;
+        modeState = magnifierMode;
+        spriteRenderer.sprite = magnifierSprite;
+    }
 }
+
+

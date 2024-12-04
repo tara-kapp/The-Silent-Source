@@ -35,6 +35,8 @@ public class PigManager : MonoBehaviour
 
     public string nextSceneName = "End_Cutscene";
 
+    public int pigSaved = 15;
+
 
     // Start is called before the first frame update
     void Start()
@@ -75,7 +77,7 @@ public class PigManager : MonoBehaviour
         i++;
 
 
-        if(pigQueue.Count > 0)
+        if(pigQueue.Count > pigSaved)
         {
             currentPig = pigQueue.Dequeue();
             StartCoroutine(MovePigToPosition(currentPig, conveyorEndPoint.position));
