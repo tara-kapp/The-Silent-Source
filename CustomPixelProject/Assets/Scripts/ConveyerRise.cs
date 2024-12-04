@@ -1,10 +1,9 @@
-using UnityEngine;
-using UnityEngine.Video;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;  // For managing scenes
 
 public class ConveyerRise : MonoBehaviour
 {
-    private VideoPlayer videoPlayer;  // Reference to the VideoPlayer
     public GameObject spriteObject;  // The sprite you want to move
     public float moveSpeed = 2f;  // Speed of movement
     public Vector3 targetPosition;  // Final position of the sprite
@@ -12,29 +11,22 @@ public class ConveyerRise : MonoBehaviour
 
     void Start()
     {
-        // Find the "Cutscene01" GameObject and get its VideoPlayer component
-        videoPlayer = GameObject.Find("Cutscene01").GetComponent<VideoPlayer>();
-        
-        // Ensure the spriteObject is set before proceeding
-        if (spriteObject != null)
+        // Check if the current scene is "Cut_Scene2.0"
+        if (SceneManager.GetActiveScene().name == "Cut_Scene2.0")
         {
-            startPosition = spriteObject.transform.position;  // Get initial position of the sprite
+            Debug.Log("Cut_Scene2.0 detected. Starting conveyor belt.");
+            
+            // Ensure the spriteObject is set before proceeding
+            if (spriteObject != null)
+            {
+                startPosition = spriteObject.transform.position;  // Get initial position of the sprite
+                StartCoroutine(MoveSprite());  // Start the conveyor movement
+            }
+            else
+            {
+                Debug.LogError("SpriteObject is not assigned!");
+            }
         }
-        else
-        {
-            Debug.LogError("SpriteObject is not assigned!");
-            return;
-        }
-
-        // Trigger the move when the video ends
-        videoPlayer.loopPointReached += OnVideoEnd;
-    }
-
-    void OnVideoEnd(VideoPlayer vp)
-    {
-        Debug.Log("Cutscene has finished, starting sprite move.");
-        // Start the sprite move
-        StartCoroutine(MoveSprite());
     }
 
     private IEnumerator MoveSprite()
