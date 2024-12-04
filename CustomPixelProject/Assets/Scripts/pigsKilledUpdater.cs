@@ -12,6 +12,8 @@ public class pigsKilledUpdater : MonoBehaviour
 
     private static int pigsKilledPerSec = 46;
 
+    public GameObject endButton;
+
     // Initialize the default text properties
     public void Start()
     {
@@ -25,5 +27,8 @@ public class pigsKilledUpdater : MonoBehaviour
         float pigsKilledCalc = elapsedTime * pigsKilledPerSec;
         int pigSlain = (int)pigsKilledCalc;
         tmpText.text = "Pigs Killed..." + pigSlain.ToString();
+        if( pigSlain >= 2750 ){
+            endButton.SetActive(true);
+        }
     }
 }
