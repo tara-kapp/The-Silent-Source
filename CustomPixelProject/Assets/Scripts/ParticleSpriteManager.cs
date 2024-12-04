@@ -19,6 +19,8 @@ public class ParticleSpriteManager : MonoBehaviour
 
     public spriteSwitch spriteSwitch;
 
+    public GameObject button;
+
 
     void Start()
     {
@@ -35,6 +37,7 @@ public class ParticleSpriteManager : MonoBehaviour
             itemSprite.sprite = sprite;
             Debug.Log(sprite.name);
             spriteSwitch.CheckSprite(sprite);
+            button.SetActive(true);
         }
         
 

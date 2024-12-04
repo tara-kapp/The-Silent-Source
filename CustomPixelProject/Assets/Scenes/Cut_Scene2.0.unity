@@ -6865,27 +6865,27 @@ MonoBehaviour:
   painOverlay: {fileID: 974434500}
   cursorButton: {fileID: 1554340805}
   manMadeItems:
-  - {fileID: 21300000, guid: 7fe2a6df6e6645846a1bf518751ca9b1, type: 3}
-  - {fileID: 21300000, guid: 106682ab24aa947479c86f9c79aa7036, type: 3}
-  - {fileID: 21300000, guid: 720b22e72b0e69f488fc3fd7de044d4e, type: 3}
-  - {fileID: 21300000, guid: 1198592a14a9793449539c36e572345d, type: 3}
-  - {fileID: 21300000, guid: d5629d8f0cd488c4eb7f135c072963b9, type: 3}
-  - {fileID: 21300000, guid: 6a8a1881f1f2b594bb9edc6b873b9ade, type: 3}
-  - {fileID: 21300000, guid: ea9337ea12283634db2a63abc2ca5eb6, type: 3}
-  - {fileID: 21300000, guid: e7441e10f6631744695f40ad1bb13ff6, type: 3}
-  - {fileID: 21300000, guid: 30a5d520a90109e44bfff88a45304d52, type: 3}
-  - {fileID: 21300000, guid: 703b4c7a51068bd4299cdc58f7411b7d, type: 3}
-  - {fileID: 21300000, guid: 0635bdfcc32393a428c8d49cba76b36c, type: 3}
-  - {fileID: 21300000, guid: d39357ca0964b334ba54cf706b433c60, type: 3}
-  - {fileID: 21300000, guid: f5dd275e27d5083489819b5b3e4f5162, type: 3}
-  - {fileID: 21300000, guid: 3250d6eb7e89a924386ddbed76ed72ca, type: 3}
-  - {fileID: 21300000, guid: 1770551298f4d5842bb56a446207119e, type: 3}
-  - {fileID: 21300000, guid: eb282ee1c9b781746bfa32673ceed05d, type: 3}
-  - {fileID: 21300000, guid: 0ca1a6621ab64b1429323fb7bc8d8949, type: 3}
-  - {fileID: 21300000, guid: e4d15bae3f319fe468f08da1b1a1fd9b, type: 3}
-  - {fileID: 21300000, guid: 3b09df88700404e40b2efaa56b12fe77, type: 3}
-  - {fileID: 21300000, guid: c8d4f34a17e327741b6c09e6b1d036db, type: 3}
-  - {fileID: 21300000, guid: e9c1e7e8460a32b41b8df175233d43c0, type: 3}
+  - {fileID: 21300000, guid: 7dfb4dca0f434484db93327a6c91e395, type: 3}
+  - {fileID: 21300000, guid: c93008c0ccaa10342bb9ef0ad846d64f, type: 3}
+  - {fileID: 21300000, guid: 5626faed6505b6743bd0ca57d5e5830f, type: 3}
+  - {fileID: 21300000, guid: 9d93408e9e308df45819c003f7e1d04e, type: 3}
+  - {fileID: 21300000, guid: 3789b103798c83e4d999af1b62b46d8b, type: 3}
+  - {fileID: 21300000, guid: c15b21e59b524e2418da226193aa8385, type: 3}
+  - {fileID: 21300000, guid: d6afb9f63cc67c5458c6a52d93a790a8, type: 3}
+  - {fileID: 21300000, guid: 9bd7bc7b202107a4081e1d0a46e0a58b, type: 3}
+  - {fileID: 21300000, guid: f400995e6e19e2641942dd248bc464b0, type: 3}
+  - {fileID: 21300000, guid: 8955b82f919592d46943b982140d0a8e, type: 3}
+  - {fileID: 21300000, guid: a703bf53af1a6fd4a9586f0be7af31c5, type: 3}
+  - {fileID: 21300000, guid: cb131daf71b145349bd2ddc5ed2146d4, type: 3}
+  - {fileID: 21300000, guid: ef5af1b40f87ba549bedd5ab14167c5e, type: 3}
+  - {fileID: 21300000, guid: 10e3107c391e35f4a9c02e7a9615ee36, type: 3}
+  - {fileID: 21300000, guid: 2b0985dbfee5d2f4d96f062bfc214ebe, type: 3}
+  - {fileID: 21300000, guid: 04789d3ca6b451140afa5875970c87b8, type: 3}
+  - {fileID: 21300000, guid: 8d181a9f514652e45810f2d57d5fff34, type: 3}
+  - {fileID: 21300000, guid: 6c6abfe021c30f54d8025d8bd63a5045, type: 3}
+  - {fileID: 21300000, guid: a6a395439d59b754d81da921d769b1f7, type: 3}
+  - {fileID: 21300000, guid: be187c11e8e4dec488d0cdff88d27d9d, type: 3}
+  - {fileID: 21300000, guid: 9a68cce637a30844cbab01f669d326b0, type: 3}
   itemSpawn: {fileID: 1395450071}
   assignedItem: {fileID: 0}
   spriteSwitch: {fileID: 1483201682}
