@@ -222,6 +222,7 @@ RectTransform:
   - {fileID: 1041936734}
   - {fileID: 1923483928}
   - {fileID: 891121951}
+  - {fileID: 1581405619}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -241,7 +242,6 @@ GameObject:
   - component: {fileID: 368937981}
   - component: {fileID: 368937983}
   - component: {fileID: 368937982}
-  - component: {fileID: 368937984}
   m_Layer: 5
   m_Name: PigKilledContext
   m_TagString: Untagged
@@ -366,25 +366,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 368937980}
   m_CullTransparentMesh: 1
---- !u!114 &368937984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 368937980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a0e8192e1022794c81a78d1c2b92e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pigsKilledCounter: {fileID: 1041936735}
-  pigsKilledTimerMins: {fileID: 1923483930}
-  pigsKilledTimerSecs: {fileID: 891121953}
-  pigsKilledContext: {fileID: 368937982}
-  manMadeItem: {fileID: 0}
-  gameTimer: {fileID: 1155955875}
-  endButton: {fileID: 1401661292}
 --- !u!1 &642768314
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,8 +524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd31b5fd0cebd364580445091f9a4e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullText: PIGS HAVE BEEN <color=#FF1100>SLAUGHTERED</color> FOR...
-  uiText: {fileID: 368937982}
+  fullText: 
+  uiText: {fileID: 1548128630}
   typingDuration: 5
   slideInDuration: 2
   slideInStartDelay: 0
@@ -597,7 +578,6 @@ GameObject:
   - component: {fileID: 891121951}
   - component: {fileID: 891121954}
   - component: {fileID: 891121953}
-  - component: {fileID: 891121952}
   m_Layer: 5
   m_Name: PigsKilledTimerSecs
   m_TagString: Untagged
@@ -625,25 +605,6 @@ RectTransform:
   m_AnchoredPosition: {x: 280, y: -158}
   m_SizeDelta: {x: 482.7331, y: 364.1479}
   m_Pivot: {x: 1.0763958, y: 0.6170798}
---- !u!114 &891121952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891121950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a0e8192e1022794c81a78d1c2b92e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pigsKilledCounter: {fileID: 1041936735}
-  pigsKilledTimerMins: {fileID: 891121953}
-  pigsKilledTimerSecs: {fileID: 891121953}
-  pigsKilledContext: {fileID: 368937982}
-  manMadeItem: {fileID: 0}
-  gameTimer: {fileID: 1155955875}
-  endButton: {fileID: 1401661292}
 --- !u!114 &891121953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,7 +713,6 @@ GameObject:
   - component: {fileID: 1041936734}
   - component: {fileID: 1041936736}
   - component: {fileID: 1041936735}
-  - component: {fileID: 1041936737}
   m_Layer: 5
   m_Name: PigsKilledCounter
   m_TagString: Untagged
@@ -879,25 +839,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041936733}
   m_CullTransparentMesh: 1
---- !u!114 &1041936737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041936733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a0e8192e1022794c81a78d1c2b92e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pigsKilledCounter: {fileID: 1041936735}
-  pigsKilledTimerMins: {fileID: 1923483930}
-  pigsKilledTimerSecs: {fileID: 891121953}
-  pigsKilledContext: {fileID: 368937982}
-  manMadeItem: {fileID: 1088633145}
-  gameTimer: {fileID: 1155955875}
-  endButton: {fileID: 1401661292}
 --- !u!1 &1067662744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,7 +1468,7 @@ GameObject:
   - component: {fileID: 1548128629}
   - component: {fileID: 1548128631}
   - component: {fileID: 1548128630}
-  - component: {fileID: 1548128632}
+  - component: {fileID: 1548128633}
   m_Layer: 5
   m_Name: manMadeItem
   m_TagString: Untagged
@@ -1575,7 +1516,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ITEM
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f46a662671d35c546bf4db93e54211f3, type: 2}
   m_sharedMaterial: {fileID: -4148667751174751231, guid: f46a662671d35c546bf4db93e54211f3, type: 2}
@@ -1652,7 +1593,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548128628}
   m_CullTransparentMesh: 1
---- !u!114 &1548128632
+--- !u!114 &1548128633
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1661,16 +1602,66 @@ MonoBehaviour:
   m_GameObject: {fileID: 1548128628}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f89e8d3a495f6f748bd2a981280dbe00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manMadeItem: {fileID: 1548128630}
+--- !u!1 &1581405618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1581405619}
+  - component: {fileID: 1581405620}
+  m_Layer: 5
+  m_Name: Script
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1581405619
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581405618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 347956470}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1581405620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581405618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a0e8192e1022794c81a78d1c2b92e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pigsKilledCounter: {fileID: 1465402435}
+  pigsKilledCounter: {fileID: 1041936735}
   pigsKilledTimerMins: {fileID: 1923483930}
   pigsKilledTimerSecs: {fileID: 891121953}
   pigsKilledContext: {fileID: 368937982}
-  manMadeItem: {fileID: 1548128630}
   gameTimer: {fileID: 1155955875}
   endButton: {fileID: 1401661292}
+  textDisplay: {fileID: 1496877052}
 --- !u!1 &1590597875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,7 +1814,6 @@ GameObject:
   - component: {fileID: 1923483928}
   - component: {fileID: 1923483931}
   - component: {fileID: 1923483930}
-  - component: {fileID: 1923483932}
   m_Layer: 5
   m_Name: PigsKilledTimerMins
   m_TagString: Untagged
@@ -1948,22 +1938,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923483927}
   m_CullTransparentMesh: 1
---- !u!114 &1923483932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923483927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a0e8192e1022794c81a78d1c2b92e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pigsKilledCounter: {fileID: 1041936735}
-  pigsKilledTimerMins: {fileID: 1923483930}
-  pigsKilledTimerSecs: {fileID: 891121953}
-  pigsKilledContext: {fileID: 368937982}
-  manMadeItem: {fileID: 0}
-  gameTimer: {fileID: 1155955875}
-  endButton: {fileID: 1401661292}

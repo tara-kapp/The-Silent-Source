@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using TypingFXProFREE;
 
 public class endSceneTextHandler : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class endSceneTextHandler : MonoBehaviour
 
     public GameObject endButton;
 
-    //public TextDisplay textDisplay;s
+    public TextDisplay textDisplay;
 
  
     // Initialize the default text properties
@@ -30,6 +31,9 @@ public class endSceneTextHandler : MonoBehaviour
         pigsKilledTimerMins.text = "";
         pigsKilledTimerSecs.text = "";
         pigsKilledContext.text = "";
+
+
+        textDisplay.TriggerSelectedEffect();
 
 
     }
