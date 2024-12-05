@@ -69,6 +69,7 @@ namespace TypingFXProFREE
 
         void Start()
         {
+            
             TriggerSelectedEffect();
 
             uiText.text = "";

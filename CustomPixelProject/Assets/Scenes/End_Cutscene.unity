@@ -352,7 +352,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -3.6730957, y: 364.69415, z: -640.89136, w: -343.81848}
+  m_margin: {x: -803.5225, y: 683.9548, z: -635.7971, w: -584.9621}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -382,6 +382,7 @@ MonoBehaviour:
   pigsKilledTimerMins: {fileID: 1923483930}
   pigsKilledTimerSecs: {fileID: 891121953}
   pigsKilledContext: {fileID: 368937982}
+  manMadeItem: {fileID: 0}
   gameTimer: {fileID: 1155955875}
   endButton: {fileID: 1401661292}
 --- !u!1 &642768314
@@ -512,6 +513,79 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &820409948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 820409951}
+  - component: {fileID: 820409950}
+  - component: {fileID: 820409949}
+  m_Layer: 0
+  m_Name: TextEffect-ITEM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &820409949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820409948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd31b5fd0cebd364580445091f9a4e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullText: PIGS HAVE BEEN <color=#FF1100>SLAUGHTERED</color> FOR...
+  uiText: {fileID: 368937982}
+  typingDuration: 5
+  slideInDuration: 2
+  slideInStartDelay: 0
+  fadeInDuration: 7
+  fadeOutDuration: 2
+  glitchDuration: 2
+  glitchIntensity: 0.1
+  zoomInDuration: 2
+  zoomInStartDelay: 1
+  zoomOutDuration: 2
+  zoomOutStartDelay: 1
+  startDelay: 2
+  effectType: 0
+  slideDirection: 0
+--- !u!114 &820409950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820409948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5075b6da9ec2e34393620b6fb107936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &820409951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820409948}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1579.4417, y: 615.6737, z: 11876.107}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &891121950
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +640,8 @@ MonoBehaviour:
   pigsKilledCounter: {fileID: 1041936735}
   pigsKilledTimerMins: {fileID: 891121953}
   pigsKilledTimerSecs: {fileID: 891121953}
-  pigsKilledContext: {fileID: 0}
+  pigsKilledContext: {fileID: 368937982}
+  manMadeItem: {fileID: 0}
   gameTimer: {fileID: 1155955875}
   endButton: {fileID: 1401661292}
 --- !u!114 &891121953
@@ -790,7 +865,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -796.67096, y: -340.66345, z: 484.99567, w: 364.69308}
+  m_margin: {x: -796.67096, y: -291.41577, z: -642.6052, w: 432.6208}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -819,7 +894,8 @@ MonoBehaviour:
   pigsKilledCounter: {fileID: 1041936735}
   pigsKilledTimerMins: {fileID: 1923483930}
   pigsKilledTimerSecs: {fileID: 891121953}
-  pigsKilledContext: {fileID: 0}
+  pigsKilledContext: {fileID: 368937982}
+  manMadeItem: {fileID: 1088633145}
   gameTimer: {fileID: 1155955875}
   endButton: {fileID: 1401661292}
 --- !u!1 &1067662744
@@ -1027,7 +1103,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -1.7011719, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1123,8 +1199,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 627, y: -488}
-  m_SizeDelta: {x: 650, y: 250}
+  m_AnchoredPosition: {x: 743.63, y: -513.8}
+  m_SizeDelta: {x: 424.1401, y: 137.9192}
   m_Pivot: {x: 0.48985174, y: 0.18996963}
 --- !u!114 &1401661294
 MonoBehaviour:
@@ -1145,7 +1221,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 0, b: 0, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1189,21 +1265,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401661292}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ac073a36ebe22f14ba76e439963e70f7, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1353,7 +1429,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -796.67096, y: 0, z: -640.89136, w: -13.049408}
+  m_margin: {x: -796.67096, y: 0, z: -640.89136, w: 0.53616333}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1367,6 +1443,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465402432}
   m_CullTransparentMesh: 1
+--- !u!1 &1496877051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1496877054}
+  - component: {fileID: 1496877053}
+  - component: {fileID: 1496877052}
+  m_Layer: 0
+  m_Name: TextEffect-HEADER
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1496877052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496877051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd31b5fd0cebd364580445091f9a4e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullText: SINCE STARTING THIS INTERACTIVE EXPERIENCE
+  uiText: {fileID: 1465402435}
+  typingDuration: 5
+  slideInDuration: 2
+  slideInStartDelay: 0
+  fadeInDuration: 7
+  fadeOutDuration: 2
+  glitchDuration: 2
+  glitchIntensity: 0.1
+  zoomInDuration: 2
+  zoomInStartDelay: 1
+  zoomOutDuration: 2
+  zoomOutStartDelay: 1
+  startDelay: 2
+  effectType: 0
+  slideDirection: 0
+--- !u!114 &1496877053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496877051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5075b6da9ec2e34393620b6fb107936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1496877054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496877051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1579.4417, y: 615.6737, z: 11876.107}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1548128628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1527,7 @@ GameObject:
   - component: {fileID: 1548128629}
   - component: {fileID: 1548128631}
   - component: {fileID: 1548128630}
+  - component: {fileID: 1548128632}
   m_Layer: 5
   m_Name: manMadeItem
   m_TagString: Untagged
@@ -1434,8 +1584,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278194687
-  m_fontColor: {r: 1, g: 0.06707064, b: 0, a: 1}
+    rgba: 4278255370
+  m_fontColor: {r: 0.04096198, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1488,7 +1638,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -3.6730957, y: 569.1193, z: -640.89136, w: -452.41937}
+  m_margin: {x: -796.7298, y: 876.49255, z: -637.49524, w: -722.4323}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1502,6 +1652,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548128628}
   m_CullTransparentMesh: 1
+--- !u!114 &1548128632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548128628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0e8192e1022794c81a78d1c2b92e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pigsKilledCounter: {fileID: 1465402435}
+  pigsKilledTimerMins: {fileID: 1923483930}
+  pigsKilledTimerSecs: {fileID: 891121953}
+  pigsKilledContext: {fileID: 368937982}
+  manMadeItem: {fileID: 1548128630}
+  gameTimer: {fileID: 1155955875}
+  endButton: {fileID: 1401661292}
+--- !u!1 &1590597875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1590597878}
+  - component: {fileID: 1590597877}
+  - component: {fileID: 1590597876}
+  m_Layer: 0
+  m_Name: TextEffect-PIGS CONTEXT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1590597876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590597875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd31b5fd0cebd364580445091f9a4e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullText: PIGS HAVE BEEN <color=#FF1100>SLAUGHTERED</color> FOR...
+  uiText: {fileID: 368937982}
+  typingDuration: 5
+  slideInDuration: 2
+  slideInStartDelay: 0
+  fadeInDuration: 7
+  fadeOutDuration: 2
+  glitchDuration: 2
+  glitchIntensity: 0.1
+  zoomInDuration: 2
+  zoomInStartDelay: 1
+  zoomOutDuration: 2
+  zoomOutStartDelay: 1
+  startDelay: 2
+  effectType: 0
+  slideDirection: 0
+--- !u!114 &1590597877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590597875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5075b6da9ec2e34393620b6fb107936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1590597878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590597875}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1579.4417, y: 615.6737, z: 11876.107}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1913613757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +1963,7 @@ MonoBehaviour:
   pigsKilledCounter: {fileID: 1041936735}
   pigsKilledTimerMins: {fileID: 1923483930}
   pigsKilledTimerSecs: {fileID: 891121953}
-  pigsKilledContext: {fileID: 0}
+  pigsKilledContext: {fileID: 368937982}
+  manMadeItem: {fileID: 0}
   gameTimer: {fileID: 1155955875}
   endButton: {fileID: 1401661292}
