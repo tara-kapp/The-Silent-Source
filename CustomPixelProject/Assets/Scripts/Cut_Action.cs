@@ -97,16 +97,23 @@ public class Cut_Action : MonoBehaviour
         pigPain.Play();
         //Subtracts from health amount
         healthAmount -= damage;
+
         //Removes green bar from health bar UI
         healthBar.fillAmount = (float)(healthAmount / 100f);
         //When health is at zero
         if (healthAmount == 0)
         {
+            damage = 0;
             painOverlay.SetActive(false);
             deadOverlay.SetActive(true);            
 
             //Trigger particle explosion from pigBehavior script
             pigBehavior.TriggerExplosion();
+        }
+        else
+        {
+            damage = 1;
+
         }
 
         // Remove green bar from health bar UI
