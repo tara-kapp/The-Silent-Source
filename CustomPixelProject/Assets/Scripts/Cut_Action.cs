@@ -9,6 +9,7 @@ public class Cut_Action : MonoBehaviour
     public List<Sprite> cutSprites; // List of sprites to choose from
     public float spacing = 0.1f;
     public GameObject painOverlay;
+    public GameObject deadOverlay;    
     public Transform parentTransform;
     public AudioSource pigPain;
     private List<Vector3> cutPath = new List<Vector3>();
@@ -25,8 +26,10 @@ public class Cut_Action : MonoBehaviour
 
     void Start()
     {
-        // Turn sad face off
+        // Turn face off
         painOverlay.SetActive(false);
+        deadOverlay.SetActive(false);
+        
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         // Reference PigBehavior script
         pigBehavior = GetComponent<PigBehavior>();
@@ -86,6 +89,7 @@ public class Cut_Action : MonoBehaviour
 
     public void TakeDamage(double damage)
     {
+        pigBehavior.happyOverlay.SetActive(false);
         // Show pig sad face
         painOverlay.SetActive(true);
         // Play audio
@@ -97,7 +101,8 @@ public class Cut_Action : MonoBehaviour
         //When health is at zero
         if (healthAmount == 0)
         {
-            Debug.Log("Pig is dead");
+            painOverlay.SetActive(false);
+            deadOverlay.SetActive(true);            
 
             //Trigger particle explosion from pigBehavior script
             pigBehavior.TriggerExplosion();

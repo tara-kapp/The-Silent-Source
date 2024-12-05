@@ -6,13 +6,16 @@ using UnityEngine;
 public class PigBehavior : MonoBehaviour
 {
     public ParticleSystem explosionEffect;
+    public ParticleSystem heartParticles;
     private SpriteRenderer pigSpriteRenderer;      
-    public ParticleSpriteManager particleSpriteManager;
+    public ParticleSpriteManager particleSpriteManager;    
     public Sprite assignedItem;
+    public GameObject happyOverlay;
 
 
     void Start()
     {
+        happyOverlay.SetActive(false);
         pigSpriteRenderer = GetComponent<SpriteRenderer>(); 
        
     }
@@ -44,8 +47,17 @@ public class PigBehavior : MonoBehaviour
 
                 // Removes pig off screen
                 FindObjectOfType<PigManager>().RemoveCurrentPig();
-            }          
-
+            }
         }        
-    }    
+    }
+
+    public void TriggerHearts()
+    {
+        
+        if (heartParticles != null)
+        {
+            happyOverlay.SetActive(true);
+            heartParticles.Play();            
+        }
+    }
 }

@@ -47,6 +47,8 @@ public class CursorScript : MonoBehaviour
     public float pettingSpeed = 0.1f;
     public float pettingDist = 0.5f;
 
+    public PigBehavior pigBehavior;
+
     void Start()
     {
 
@@ -139,9 +141,10 @@ public class CursorScript : MonoBehaviour
 public IEnumerator PettingMotion()
 {
     isPetting = true;
+    pigBehavior.TriggerHearts();    
 
-    // Offset for downward motion
-    Vector3 offset = new Vector3(0, -pettingDist, 0);
+        // Offset for downward motion
+        Vector3 offset = new Vector3(0, -pettingDist, 0);
 
     while (Input.GetMouseButton(0) && modeState == petMode)
     {
@@ -234,6 +237,7 @@ public void activatePetMode()
         modeState = petMode;
         spriteRenderer.sprite = handSprite;
         Invoke("activateKnifeMode", petTime);
+        
     }
 
 public void activateDefaultMode()

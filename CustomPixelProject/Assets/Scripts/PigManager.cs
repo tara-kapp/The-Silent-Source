@@ -15,6 +15,7 @@ public class PigManager : MonoBehaviour
     public Transform parentTransform;
     public GameObject painOverlay;
     public cursorUI cursorButton;
+    public ParticleSystem heartParticles;
 
     [Header("Man-Made Items")]
     public List<Sprite> manMadeItems;
@@ -58,7 +59,9 @@ public class PigManager : MonoBehaviour
             GameObject pig = Instantiate(pigPrefab, spawnPoint.position, Quaternion.identity, parentTransform);
 
             PigBehavior pigBehavior = pig.GetComponent<PigBehavior>();
-            pigBehavior.assignedItem = item;            
+            pigBehavior.assignedItem = item;         
+            
+            pigBehavior.heartParticles = heartParticles; ;
 
             pigQueue.Enqueue(pig);
         }
@@ -69,7 +72,6 @@ public class PigManager : MonoBehaviour
 
     public void MoveNextPig()
     {
-
         cursorButton.resetDecisionMade();
 
         //set nametag sprite and increment i

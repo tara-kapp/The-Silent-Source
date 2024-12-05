@@ -40,8 +40,6 @@ public class ParticleSpriteManager : MonoBehaviour
             button.SetActive(true);
         }
         
-
-
     }
 
     public void RemoveItemSprite(){
