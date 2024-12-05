@@ -32,10 +32,8 @@ public class ParticleSpriteManager : MonoBehaviour
         
         if(ItemSpawn != null)
         {
-            SpriteRenderer itemSprite = ItemSpawn.AddComponent<SpriteRenderer>();
-            Debug.Log(sprite.name);
-            itemSprite.sprite = sprite;
-            Debug.Log(sprite.name);
+            SpriteRenderer itemSprite = ItemSpawn.AddComponent<SpriteRenderer>();            
+            itemSprite.sprite = sprite;            
             spriteSwitch.CheckSprite(sprite);
             button.SetActive(true);
         }

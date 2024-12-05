@@ -16,6 +16,7 @@ public class PigManager : MonoBehaviour
     public GameObject painOverlay;
     public cursorUI cursorButton;
     public ParticleSystem heartParticles;
+    public GameObject happyOverlay;
 
     [Header("Man-Made Items")]
     public List<Sprite> manMadeItems;
@@ -28,7 +29,6 @@ public class PigManager : MonoBehaviour
     public spriteSwitch spriteSwitch;
 
     public List<Sprite> nametags;
-
     public Image nametag;
 
     public int i;
@@ -72,6 +72,10 @@ public class PigManager : MonoBehaviour
 
     public void MoveNextPig()
     {
+        //painOverlay.SetActive(false);
+        //deadOverlay.SetActive(false);
+        happyOverlay.SetActive(false);
+
         cursorButton.resetDecisionMade();
 
         //set nametag sprite and increment i
@@ -102,7 +106,7 @@ public class PigManager : MonoBehaviour
                 //Destroys asset
             Destroy(currentPig);
                 //Brings out new pig
-            MoveNextPig();
+                //MoveNextPig();
             }));
         }
     }

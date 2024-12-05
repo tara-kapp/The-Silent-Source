@@ -89,6 +89,7 @@ public class Cut_Action : MonoBehaviour
 
     public void TakeDamage(double damage)
     {
+        //Hide happy face
         pigBehavior.happyOverlay.SetActive(false);
         // Show pig sad face
         painOverlay.SetActive(true);

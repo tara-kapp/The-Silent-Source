@@ -21,6 +21,8 @@ public class spriteSwitch : MonoBehaviour
 
     public Texture[] textureArray;
 
+    public PigManager pigManager;
+
     private string[] headings = {
         "Bullets",
         "Shampoo",
@@ -50,7 +52,7 @@ public class spriteSwitch : MonoBehaviour
         "Pig hair is commonly used in upholstery as a soft, work-friendly material for stuffing. A blend of 80% pig hair and 20% horse mane is often used as a second layer of stuffing.", 
         "Chalk can utilize pig products, specifically pig bones, which are processed into 'bone char' - a material used as a filler and sometimes as a whitening agent in the production.", 
         "Fatty acids are used as a hardening agent", 
-        "liver, tripe, pig's trotters, udders and chicken feet are commonly used in pet food. These ingredients provide an excellent source of protein, amino acids and other nutrients.", 
+        "Liver, tripe, pig's trotters, udders and chicken feet are commonly used in pet food. These ingredients provide an excellent source of protein, amino acids and other nutrients.", 
         "Coating fabrics with processed pig fats, which are positively charged and cling to fabric surfaces, result in feeling soft and slippery.", 
         "composting their manure, which can be used to improve soil quality and promote healthy plant growth. Fertilizer can also be made from processed pig hair.", 
         "The first footballs were made from inflated pig bladders, which is where the term 'pigskin' comes from. Pig bladders were a good choice because they were cheap and durable.",  
@@ -152,6 +154,8 @@ public class spriteSwitch : MonoBehaviour
 
     public void OnExit(){
         gameobject.SetActive(false);
+
+        pigManager.MoveNextPig();
     }
     void UpdateSprite() {
         sprite.texture = spriteArray[spriteNum];

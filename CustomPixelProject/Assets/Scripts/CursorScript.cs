@@ -202,7 +202,7 @@ public void petModeToggle()
             activateKnifeMode();
         }
 
-    Debug.Log("STATE: " + getMode());
+    //Debug.Log("STATE: " + getMode());
 
 }
 
@@ -216,7 +216,7 @@ public void knifeModeToggle()
     {
             activatePetMode();
     }
-    Debug.Log("STATE: " + getMode());
+    //Debug.Log("STATE: " + getMode());
 }
 
 public string getMode()
