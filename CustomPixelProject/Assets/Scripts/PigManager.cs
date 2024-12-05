@@ -117,7 +117,7 @@ public class PigManager : MonoBehaviour
         //Set speed pig moves on conveyor belt
         float speed = 8f;
 
-
+        
         while(Vector3.Distance(pig.transform.position, targetPosition) > 0.1f)
         {
             pig.transform.position = Vector3.MoveTowards(pig.transform.position, targetPosition, speed * Time.deltaTime);

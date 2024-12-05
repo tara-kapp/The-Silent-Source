@@ -81,7 +81,7 @@ public class Cut_Action : MonoBehaviour
                     StartCoroutine(ScaleOverTime(newCut.transform, currentPosition));
 
                     // Take damage amount
-                    TakeDamage(10);
+                    TakeDamage(1);
                 }
             }
         }
@@ -90,7 +90,7 @@ public class Cut_Action : MonoBehaviour
     public void TakeDamage(double damage)
     {
         //Hide happy face
-        pigBehavior.happyOverlay.SetActive(false);
+        pigManager.happyOverlay.SetActive(false);
         // Show pig sad face
         painOverlay.SetActive(true);
         // Play audio

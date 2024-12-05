@@ -6045,7 +6045,7 @@ MonoBehaviour:
   messageText: {fileID: 444387901}
   manMadeItems: []
   textureArray: []
-  pigManager: {fileID: 0}
+  pigManager: {fileID: 1292450186}
   gameobject: {fileID: 444387899}
 --- !u!1001 &561629894
 PrefabInstance:
@@ -6891,9 +6891,10 @@ MonoBehaviour:
   conveyorEndPoint: {fileID: 175963221}
   offScreenPoint: {fileID: 1442276084}
   parentTransform: {fileID: 1292450185}
-  painOverlay: {fileID: 0}
+  painOverlay: {fileID: 8756187622085549765}
   cursorButton: {fileID: 1554340805}
   heartParticles: {fileID: 1400930310}
+  happyOverlay: {fileID: 8756187622085549763}
   manMadeItems:
   - {fileID: 21300000, guid: 7dfb4dca0f434484db93327a6c91e395, type: 3}
   - {fileID: 21300000, guid: c93008c0ccaa10342bb9ef0ad846d64f, type: 3}
@@ -7121,6 +7122,10 @@ PrefabInstance:
       propertyPath: gameobject
       value: 
       objectReference: {fileID: 444387899}
+    - target: {fileID: 5868899866606945505, guid: 8e987d6bcc5f45646b2428df600f5ee1, type: 3}
+      propertyPath: pigManager
+      value: 
+      objectReference: {fileID: 1292450186}
     - target: {fileID: 5868899866606945505, guid: 8e987d6bcc5f45646b2428df600f5ee1, type: 3}
       propertyPath: headingText
       value: 
@@ -7972,12 +7977,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108908356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: -1.2217472}
+  m_LocalPosition: {x: 0, y: 0, z: -1.2217472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 113066617}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!331 &2108908358
 SpriteMask:
@@ -8039,7 +8044,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4853241724703680564, guid: d7f48921774082348913c9c270d54726, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6038265755619852714, guid: d7f48921774082348913c9c270d54726, type: 3}
       propertyPath: m_RenderMode
@@ -8060,6 +8065,10 @@ PrefabInstance:
     - target: {fileID: 6038265755619852714, guid: d7f48921774082348913c9c270d54726, type: 3}
       propertyPath: m_MinParticleSize
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659277511019833387, guid: d7f48921774082348913c9c270d54726, type: 3}
+      propertyPath: lengthInSec
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6659277511019833387, guid: d7f48921774082348913c9c270d54726, type: 3}
       propertyPath: moveWithTransform
@@ -8203,11 +8212,19 @@ PrefabInstance:
       objectReference: {fileID: 113066617}
     - target: {fileID: 8870534275907220940, guid: d7f48921774082348913c9c270d54726, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9036021032972543529, guid: d7f48921774082348913c9c270d54726, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9036021032972543529, guid: d7f48921774082348913c9c270d54726, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 71.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9036021032972543529, guid: d7f48921774082348913c9c270d54726, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7f48921774082348913c9c270d54726, type: 3}
