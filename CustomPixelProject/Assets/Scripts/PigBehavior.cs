@@ -38,7 +38,7 @@ public class PigBehavior : MonoBehaviour
         if (explosionEffect.isStopped)
         {
             // Delay Coroutine
-            StartCoroutine(DelayedFunction(5f));
+            StartCoroutine(DelayedFunction(2f));
 
             // Sets timer to delay pig movement
             IEnumerator DelayedFunction(float delay)
