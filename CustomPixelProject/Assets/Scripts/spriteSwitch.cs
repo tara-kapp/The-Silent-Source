@@ -59,7 +59,7 @@ public class spriteSwitch : MonoBehaviour
         "Fatty acids from bone fat are used to stiffen the wax and raise the candle's melting point.",
         "Animal glue is a water-based adhesive that's non-toxic and biodegradable. It's used in traditional woodworking and painting techniques.", 
         "Under sterile conditions, a pigs heart valves can be removed from their body to be implanted into a humans.", 
-        "Insulin from pigs is extracted from their pancreases, purified, and processed for medical use.", 
+        "Insulin is extracted from pigs pancreases. It is then purified and processed for medical use.", 
         "Pigs are used to make gelatin, the main ingredient in Jell-O, by boiling their skin, bones, tendons, and ligaments to extract collagen", 
         "Pigs are used to make leather through a process that involves harvesting, processing, and tanning their skin",
         "Proteins found in pig bones are used to make and adhesive called 'Bone Glue'. When combined with flammable chemicals like phosphorus it can be used to make matches.", 
