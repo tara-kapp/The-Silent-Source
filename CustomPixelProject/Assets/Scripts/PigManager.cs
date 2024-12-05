@@ -71,9 +71,7 @@ public class PigManager : MonoBehaviour
     }    
 
     public void MoveNextPig()
-    {
-        //painOverlay.SetActive(false);
-        //deadOverlay.SetActive(false);
+    {        
         happyOverlay.SetActive(false);
 
         cursorButton.resetDecisionMade();

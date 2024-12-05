@@ -28,8 +28,7 @@ public class ParticleSpriteManager : MonoBehaviour
     }
 
     public void ShowItemSprite(Sprite sprite)
-    {
-        
+    {        
         if(ItemSpawn != null)
         {
             SpriteRenderer itemSprite = ItemSpawn.AddComponent<SpriteRenderer>();            
